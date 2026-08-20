@@ -75,6 +75,7 @@
     const source = new FormData(form);
     values.set('url', source.get('url'));
     values.set('languages', source.get('languages'));
+    values.set('billing', source.get('billing'));
     const button = queue.querySelector('[type="submit"]');
     button.disabled = true;
     try {

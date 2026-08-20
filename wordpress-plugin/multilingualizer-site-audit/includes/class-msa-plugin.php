@@ -8,6 +8,7 @@ final class MSA_Plugin
 
     public static function boot(): void
     {
+        add_action('plugins_loaded', [MSA_Queue::class, 'maybe_install']);
         add_shortcode('multilingualizer_weglot_calculator', [self::class, 'shortcode']);
         add_action('wp_ajax_nopriv_msa_calculate', [self::class, 'calculate']);
         add_action('wp_ajax_msa_calculate', [self::class, 'calculate']);
@@ -16,6 +17,8 @@ final class MSA_Plugin
         add_action('wp_ajax_nopriv_msa_queue', [self::class, 'queue']);
         add_action('wp_ajax_msa_queue', [self::class, 'queue']);
         add_action('msa_process_audit', [self::class, 'process_audit'], 10, 1);
+        add_action('msa_cleanup_audit_jobs', [MSA_Queue::class, 'cleanup']);
+        add_action('rest_api_init', [self::class, 'register_worker_routes']);
     }
 
     public static function shortcode(): string
@@ -104,45 +107,95 @@ final class MSA_Plugin
             }
             $url = MSA_Crawler::normalise_url(sanitize_text_field(wp_unslash($_POST['url'] ?? '')));
             $languages = self::languages();
-            $job_id = wp_generate_uuid4();
-            set_transient('msa_job_' . $job_id, compact('job_id', 'email', 'url', 'languages'), DAY_IN_SECONDS);
-            if (function_exists('as_enqueue_async_action')) {
-                as_enqueue_async_action('msa_process_audit', [$job_id], 'multilingualizer-site-audit');
-            } else {
-                wp_schedule_single_event(time() + 5, 'msa_process_audit', [$job_id]);
-            }
-            wp_send_json_success(['job_id' => $job_id], 202);
+            $billing = sanitize_key($_POST['billing'] ?? 'monthly');
+            (new MSA_Pricing())->calculate(0, $languages, $billing);
+            $job = MSA_Queue::enqueue($email, $url, $languages, $billing);
+            wp_schedule_single_event(time() + 30, 'msa_process_audit', [$job['job_uuid']]);
+            wp_send_json_success(['job_id' => $job['job_uuid']], 202);
         } catch (Throwable $error) {
             wp_send_json_error(['message' => $error->getMessage()], 400);
         }
     }
 
-    public static function process_audit(string $job_id): void
+    public static function process_audit(string $job_uuid): void
     {
-        $job = get_transient('msa_job_' . $job_id);
-        if (!is_array($job)) {
+        $job = MSA_Queue::claim_uuid($job_uuid, 'wordpress-fallback');
+        if (!$job) {
             return;
         }
         try {
             $audit = MSA_Crawler::crawl($job['url']);
-            $price = (new MSA_Pricing())->calculate($audit['source_words'], (int) $job['languages'], 'monthly');
-            $plan = $price['plan'] ? $price['plan']['name'] . ' at €' . $price['plan']['price'] . ' per month' : 'a custom Weglot quote';
-            $lines = [
-                'Your website audit', '',
-                'Site: ' . $audit['requested_url'],
-                'Pages checked: ' . count($audit['pages']) . ($audit['truncated'] ? ' (10-page limit reached)' : ''),
-                'Estimated source words: ' . number_format_i18n($audit['source_words']),
-                'Destination languages: ' . $job['languages'],
-                'Estimated translated words: ' . number_format_i18n($price['translated_words']),
-                'Likely published plan: ' . $plan, '',
-                'Review the current plans: ' . self::AFFILIATE_URL, '',
-                'This is an estimate from publicly accessible HTML. Dynamic, gated and unlinked content may not be included.',
-            ];
-            wp_mail($job['email'], 'Your Multilingualizer website audit', implode("\n", $lines));
+            $price = (new MSA_Pricing())->calculate($audit['source_words'], (int) $job['destination_languages'], $job['billing']);
+            self::send_report($job, ['audit' => $audit, 'price' => $price]);
+            MSA_Queue::complete((int) $job['id'], ['audit' => $audit, 'price' => $price]);
         } catch (Throwable $error) {
             wp_mail($job['email'], 'We could not complete your website audit', "We could not complete the audit of {$job['url']}.\n\n" . $error->getMessage());
+            MSA_Queue::fail((int) $job['id'], $error->getMessage());
         }
-        delete_transient('msa_job_' . $job_id);
+    }
+
+    public static function register_worker_routes(): void
+    {
+        register_rest_route('multilingualizer-audit/v1', '/jobs/claim', [
+            'methods' => 'POST',
+            'callback' => [self::class, 'worker_claim'],
+            'permission_callback' => static fn(): bool => current_user_can('manage_options'),
+        ]);
+        register_rest_route('multilingualizer-audit/v1', '/jobs/(?P<id>\d+)/complete', [
+            'methods' => 'POST',
+            'callback' => [self::class, 'worker_complete'],
+            'permission_callback' => static fn(): bool => current_user_can('manage_options'),
+        ]);
+    }
+
+    public static function worker_claim(WP_REST_Request $request): WP_REST_Response
+    {
+        $worker_id = sanitize_text_field((string) ($request->get_param('worker_id') ?: 'external-worker'));
+        $job = MSA_Queue::claim_next(substr($worker_id, 0, 100));
+        return new WP_REST_Response($job, $job ? 200 : 204);
+    }
+
+    public static function worker_complete(WP_REST_Request $request): WP_REST_Response
+    {
+        $job = MSA_Queue::get((int) $request['id']);
+        if (!$job || $job['status'] !== 'processing') {
+            return new WP_REST_Response(['message' => 'The job is not available for completion.'], 409);
+        }
+        $success = filter_var($request->get_param('success'), FILTER_VALIDATE_BOOLEAN);
+        if (!$success) {
+            $error = sanitize_text_field((string) $request->get_param('error'));
+            MSA_Queue::fail((int) $job['id'], $error ?: 'The external worker failed.');
+            wp_mail($job['email'], 'We could not complete your website audit', "We could not complete the audit of {$job['url']}.\n\n{$error}");
+            return new WP_REST_Response(['status' => 'failed'], 200);
+        }
+        $report = $request->get_json_params()['report'] ?? null;
+        if (!is_array($report) || !isset($report['audit'], $report['price'])) {
+            return new WP_REST_Response(['message' => 'A complete audit and price report is required.'], 400);
+        }
+        self::send_report($job, $report);
+        MSA_Queue::complete((int) $job['id'], $report);
+        return new WP_REST_Response(['status' => 'completed'], 200);
+    }
+
+    private static function send_report(array $job, array $report): void
+    {
+        $audit = $report['audit'];
+        $price = $report['price'];
+        $plan = !empty($price['plan']) ? $price['plan']['name'] . ' at €' . $price['plan']['price'] . ' per ' . $price['plan']['period'] : 'a custom Weglot quote';
+        $lines = [
+            'Your website audit', '',
+            'Site: ' . ($audit['requestedUrl'] ?? $audit['requested_url'] ?? $job['url']),
+            'Pages checked: ' . count($audit['pages'] ?? []) . (!empty($audit['truncated']) ? ' (10-page limit reached)' : ''),
+            'Estimated source words: ' . number_format_i18n((int) ($audit['sourceWords'] ?? $audit['source_words'] ?? 0)),
+            'Destination languages: ' . $job['destination_languages'],
+            'Estimated translated words: ' . number_format_i18n((int) ($price['translatedWords'] ?? $price['translated_words'] ?? 0)),
+            'Likely published plan: ' . $plan, '',
+            'Review the current plans: ' . self::AFFILIATE_URL, '',
+            'This is an estimate from publicly accessible HTML. Dynamic, gated and unlinked content may not be included.',
+        ];
+        if (!wp_mail($job['email'], 'Your Multilingualizer website audit', implode("\n", $lines))) {
+            throw new RuntimeException('WordPress could not send the audit email.');
+        }
     }
 
     private static function price(int $words): array
