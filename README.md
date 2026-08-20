@@ -30,8 +30,16 @@ It stores the strategy, content pipeline, outreach ledger and repeatable collect
 | `npm run collect:wp` | Export public WordPress posts, pages and products |
 | `npm run wp:list -- --type=posts` | List WordPress content |
 | `npm run wp:draft -- content/drafts/example.md` | Create a WordPress draft from Markdown |
+| `npm run audit:serve` | Run the local price calculator and audit prototype |
+| `npm run audit:worker` | Process queued full-site audits into the ignored report and email outbox |
 
 WordPress creation is deliberately draft-only. Publishing is a separate editorial decision after factual, visual and conversion checks.
+
+## Audit tool prototype
+
+Run `npm run audit:serve`, then open `http://127.0.0.1:4173`. The prototype supports manual word counts, pasted content, an immediate homepage audit and a consented queued whole-site audit. Run `npm run audit:worker` to process queued jobs.
+
+Reports and provider-ready email messages are written below `data/`, which is ignored by Git. The prototype does not send email. Read [`.docs/audit-lead-tool.md`](.docs/audit-lead-tool.md) before deploying it or connecting a mail provider.
 
 ## Repository layout
 

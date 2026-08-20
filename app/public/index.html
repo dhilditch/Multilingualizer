@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Estimate the cost of translating a website with Weglot from a word count, pasted pages or a website crawl.">
+  <title>Weglot price and website word-count calculator</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">Multilingual website planning</p>
+      <h1>How much will Weglot cost for your website?</h1>
+      <p>Start with a word count, paste your page content or let us check your homepage. The result is an estimate based on Weglot's published translated-word limits.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="manual-title">
+      <div class="section-heading">
+        <span class="step">1</span>
+        <div><h2 id="manual-title">Quick estimate</h2><p>Enter a word count or paste one or more pages.</p></div>
+      </div>
+      <form id="calculator-form">
+        <div class="mode-switch" role="group" aria-label="Word source">
+          <button type="button" class="mode active" data-mode="words">I know the word count</button>
+          <button type="button" class="mode" data-mode="text">Count pasted pages</button>
+        </div>
+        <label id="words-field">Website words<input name="words" type="number" min="0" step="1" value="5000" required></label>
+        <label id="text-field" hidden>Paste page content<textarea name="text" rows="10" placeholder="Paste one page or several pages here. Formatting does not matter."></textarea></label>
+        <div class="grid-two">
+          <label>Destination languages<input name="languages" type="number" min="1" max="20" step="1" value="1" required></label>
+          <label>Billing<select name="billing"><option value="monthly">Monthly</option><option value="annual">Annual</option></select></label>
+        </div>
+        <button class="primary" type="submit">Calculate price</button>
+      </form>
+      <div id="calculator-result" class="result" hidden aria-live="polite"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="crawl-title">
+      <div class="section-heading">
+        <span class="step">2</span>
+        <div><h2 id="crawl-title">Check your homepage</h2><p>We will fetch one public page and return the result immediately. The anonymous scan is not saved.</p></div>
+      </div>
+      <form id="homepage-form">
+        <label>Website address<input name="url" type="text" inputmode="url" placeholder="example.com" required></label>
+        <div class="grid-two">
+          <label>Destination languages<input name="languages" type="number" min="1" max="20" value="1" required></label>
+          <label>Billing<select name="billing"><option value="monthly">Monthly</option><option value="annual">Annual</option></select></label>
+        </div>
+        <button class="primary" type="submit">Check homepage</button>
+      </form>
+      <div id="homepage-result" class="result" hidden aria-live="polite"></div>
+
+      <form id="queue-form" class="queue" hidden>
+        <h3>Audit the rest of the site</h3>
+        <p>The full audit checks up to 25 public pages. It can take a few minutes, so we will email the report when it is ready.</p>
+        <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+        <label class="consent"><input name="consent" type="checkbox" required> Store my email and website address to run this audit and send me the report. This does not subscribe me to marketing emails.</label>
+        <button class="primary" type="submit">Queue full website audit</button>
+      </form>
+      <div id="queue-result" class="result" hidden aria-live="polite"></div>
+    </section>
+
+    <p class="fine-print">Estimates exclude private, account-only and some dynamically loaded content. Always confirm the final plan and price with Weglot before purchasing.</p>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>

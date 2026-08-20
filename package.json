@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "check": "node --test && node scripts/check-config.mjs",
+    "audit:serve": "node app/server.mjs",
+    "audit:worker": "node app/worker.mjs",
     "check:access": "node scripts/check-access.mjs",
     "collect": "npm run collect:gsc && npm run collect:ga4 && npm run collect:wp && npm run crawl",
     "crawl": "node scripts/crawl-site.mjs",

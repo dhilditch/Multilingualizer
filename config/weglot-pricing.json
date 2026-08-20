@@ -1,0 +1,13 @@
+{
+  "currency": "EUR",
+  "checkedAt": "2026-08-20",
+  "source": "https://www.weglot.com/pricing",
+  "plans": [
+    { "name": "Free", "translatedWords": 2000, "languages": 1, "monthly": 0, "annual": 0 },
+    { "name": "Starter", "translatedWords": 10000, "languages": 1, "monthly": 15, "annual": 150 },
+    { "name": "Business", "translatedWords": 50000, "languages": 3, "monthly": 29, "annual": 290 },
+    { "name": "Pro", "translatedWords": 200000, "languages": 5, "monthly": 79, "annual": 790 },
+    { "name": "Advanced", "translatedWords": 1000000, "languages": 10, "monthly": 299, "annual": 2990 },
+    { "name": "Extended", "translatedWords": 5000000, "languages": 20, "monthly": 699, "annual": 6990 }
+  ]
+}
