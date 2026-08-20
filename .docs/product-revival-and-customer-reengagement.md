@@ -87,6 +87,13 @@ The first outreach should be a small, manually reviewed batch. Measure replies, 
 
 ## Discord evidence
 
-The approved Discord exporter is restricted to one bounded scan of all allow-listed Support Channels. The existing export for 19 August 2026 contains zero Multilingualizer messages. A plan has been prepared for 20 August 2026, but execution requires explicit approval because it contacts Discord through a personal user token and scans 21 support channels rather than only Multilingualizer.
+The approved Discord exporter completed two bounded scans of all 21 allow-listed Support Channels with no failures:
+
+- 13 August 2026 through 20 August 2026;
+- 20 August 2026 through 21 August 2026.
+
+Both the Multilingualizer and Multicurrencyalizer exports contain zero messages across those windows. The recent returning-customer conversation is therefore earlier than 13 August or inside a thread, which the exporter deliberately excludes.
+
+Before scanning backwards, improve the wrapper so it can select one or more channels from the frozen allow-list. That retains the allow-list boundary while avoiding 21 Discord requests for every date window when only Multilingualizer is relevant.
 
 Discord exports and named-customer findings stay in the private local-data area. Only anonymised product patterns and counts may enter this repository.
