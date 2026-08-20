@@ -134,7 +134,7 @@ function run() {
       }
       totals.processed += 1;
       if (siteState.state === 'parked') totals.parked += 1;
-      if (classification.sector !== 'Unclassified' && classification.sector !== 'Parked domain') totals.classified += 1;
+      if (siteState.state === 'customer_site' && classification.sector !== 'Unclassified') totals.classified += 1;
       if (languageSummary.status === 'detected') totals.detected += 1;
       else if (languageSummary.status === 'possible') totals.possible += 1;
       else if (languageSummary.status === 'not_detected') totals.notDetected += 1;
