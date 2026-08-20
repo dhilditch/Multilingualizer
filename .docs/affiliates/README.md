@@ -11,6 +11,10 @@ customer names, domains, email addresses or other private customer data.
 - `join-queue.md`: programmes worth applying to, in priority order.
 - `programme-register.md`: the disposition of every named technology in the current
   customer-intelligence inventory.
+- `opportunities/`: generated aggregate customer segments and recommendation angles,
+  one file per cash-paying affiliate or partner opportunity.
+- `opportunities/priority-findings.md`: ranked peer opportunities and the strongest
+  cross-programme themes.
 
 ## Status definitions
 
@@ -41,7 +45,8 @@ customer names, domains, email addresses or other private customer data.
 
 ## Scope
 
-The source snapshot contains 834 active HTML sites. Named third-party technology was
-found on 726 installations belonging to 600 paid customers. Counts in this folder are
-unique paid customers, not script occurrences. Unclassified hosts are excluded until a
-deterministic fingerprint identifies the underlying product.
+The source snapshot contains 834 active HTML sites. After excluding parking-provider
+technology, named third-party technology is attributable to 719 installations belonging
+to 594 paid customers. Counts in this folder are unique paid customers, not script
+occurrences. Unclassified hosts are excluded until a deterministic fingerprint identifies
+the underlying product.

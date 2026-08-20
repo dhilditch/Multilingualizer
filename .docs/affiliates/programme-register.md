@@ -27,7 +27,7 @@ by the same vendor are grouped only when one programme covers them, for example 
 | Fathom Analytics | 3 | Join | 25% lifetime recurring; 30-day cookie. https://usefathom.com/affiliates |
 | MailerLite | 1 | Join | 30% lifetime recurring; 45-day window. https://www.mailerlite.com/affiliate |
 | Pipedrive | 1 | Join | 20% for one year, tiering to 30%; 90-day cookie. https://www.pipedrive.com/en/affiliate-partnership |
-| CookieYes | 13 | Join | 30% recurring for three years. https://www.cookieyes.com/documentation/cookieyes-affiliate-program-tapfiliate/ |
+| CookieYes | 8 | Join | 30% recurring for three years. Five further detections belonged to HugeDomains parking pages and are excluded. https://www.cookieyes.com/documentation/cookieyes-affiliate-program-tapfiliate/ |
 | Cookiebot | 4 | Consider partner | Reseller pays 40% for three years then 20%; Premium account required. https://www.cookiebot.com/en/resellers/ |
 | Usercentrics | 4 | Join | Public affiliate scheme pays 30% for one year; 90-day window. https://usercentrics.com/affiliates/ |
 | iubenda | 3 | Join | Up to 40% on first purchase; 30-day window. https://www.iubenda.com/en/join-the-iubenda-affiliate-program/ |

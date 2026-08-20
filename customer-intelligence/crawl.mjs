@@ -10,6 +10,7 @@ import {
   summariseLanguageTechnology,
 } from './lib/extract.mjs';
 import { fetchPage } from './lib/http.mjs';
+import { classifySite, detectSiteState } from './lib/enrichment.mjs';
 import { DATA_ROOT, HTML_ROOT } from './lib/paths.mjs';
 
 function isoNow() {
@@ -148,6 +149,22 @@ async function inspectSite(site, runId, delayMs) {
   );
   const currencies = [...new Set(prices.map(({ currency }) => currency))].sort();
   const amounts = prices.map(({ amountMinor }) => amountMinor);
+  const siteState = detectSiteState({
+    html: homeResponse.body,
+    finalUrl: homeResponse.finalUrl,
+    technologies,
+  });
+  const classification = classifySite({
+    title: home.title,
+    metaDescription: home.metaDescription,
+    siteName: home.siteName,
+    whatTheyDo: home.whatTheyDo || about?.whatTheyDo || '',
+    aboutText: about ? (about.paragraphs.join('\n\n') || about.textExcerpt).slice(0, 12_000) : '',
+    productsServices,
+    technologies,
+    detectedPlatform: home.platform || about?.platform || '',
+    siteState: siteState.state,
+  });
   return {
     summary: {
       active,
@@ -175,13 +192,24 @@ async function inspectSite(site, runId, delayMs) {
       maxPriceMinor: amounts.length ? Math.max(...amounts) : null,
       visiblePriceCount: prices.length,
       productsServices,
+      siteState: siteState.state,
+      parkedProvider: siteState.provider,
+      sector: classification.sector,
+      businessModel: classification.businessModel,
+      consentUseCase: classification.consentUseCase,
+      peerGroup: classification.peerGroup,
+      classificationConfidence: classification.confidence,
+      classificationEvidence: [...siteState.evidence, ...classification.evidence],
       lastCrawledAt: isoNow(),
       crawlError: null,
     },
     pages,
     contacts,
     prices,
-    technologies,
+    technologies: technologies.map((technology) => ({
+      ...technology,
+      attributedToCustomer: siteState.state === 'parked' ? 0 : 1,
+    })),
     signals: [
       ...(home.htmlLanguage ? [{ type: 'html_language', value: home.htmlLanguage, sourceUrl: homeResponse.finalUrl, confidence: 90, method: 'html-lang' }] : []),
       ...evidence.map((value) => ({ type: 'multilingualizer_marker', value, sourceUrl: homeResponse.finalUrl, confidence: value === 'multilingualizer-name' ? 60 : 95, method: 'html-source' })),
@@ -191,7 +219,7 @@ async function inspectSite(site, runId, delayMs) {
   };
 }
 
-function saveResult(database, site, result) {
+export function saveResult(database, site, result) {
   const summary = result.summary;
   transaction(database, () => {
     database.prepare(`UPDATE sites SET
@@ -201,7 +229,9 @@ function saveResult(database, site, result) {
       meta_description=?, site_name=?, what_they_do=?, about_url=?, about_title=?,
       about_text=?, contact_url=?, emails_json=?, phones_json=?, social_profiles_json=?,
       currencies_json=?, min_price_minor=?, max_price_minor=?, visible_price_count=?,
-      products_services_json=?, last_crawled_at=?, crawl_error=? WHERE id=?`).run(
+      products_services_json=?, site_state=?, parked_provider=?, sector=?, business_model=?,
+      consent_use_case=?, peer_group=?, classification_confidence=?, classification_evidence_json=?,
+      last_crawled_at=?, crawl_error=? WHERE id=?`).run(
       summary.active, summary.homepageStatus, summary.finalHomepageUrl, summary.detectedPlatform,
       summary.multilingualizerStatus, JSON.stringify(summary.multilingualizerEvidence), summary.multilingualStatus,
       JSON.stringify(summary.multilingualTools), JSON.stringify(summary.multilingualEvidence), summary.title,
@@ -209,6 +239,9 @@ function saveResult(database, site, result) {
       summary.aboutText, summary.contactUrl, JSON.stringify(summary.emails), JSON.stringify(summary.phones),
       JSON.stringify(summary.socials), JSON.stringify(summary.currencies), summary.minPriceMinor,
       summary.maxPriceMinor, summary.visiblePriceCount, JSON.stringify(summary.productsServices),
+      summary.siteState, summary.parkedProvider, summary.sector, summary.businessModel,
+      summary.consentUseCase, summary.peerGroup, summary.classificationConfidence,
+      JSON.stringify(summary.classificationEvidence),
       summary.lastCrawledAt, summary.crawlError, site.id,
     );
     for (const table of ['contacts', 'prices', 'signals']) database.prepare(`DELETE FROM ${table} WHERE site_id=?`).run(site.id);
@@ -224,8 +257,8 @@ function saveResult(database, site, result) {
     for (const price of result.prices) insertPrice.run(site.id, price.pageKind, price.currency, price.amountMinor, price.displayed, price.context, price.sourceUrl, price.evidenceMethod);
     const insertSignal = database.prepare('INSERT OR IGNORE INTO signals (site_id,signal_type,value,source_url,confidence,evidence_method) VALUES (?,?,?,?,?,?)');
     for (const signal of result.signals) insertSignal.run(site.id, signal.type, signal.value, signal.sourceUrl, signal.confidence, signal.method);
-    const insertTechnology = database.prepare('INSERT OR IGNORE INTO site_technologies (site_id,name,category,host,evidence_type,evidence_value,source_url,page_kind,confidence) VALUES (?,?,?,?,?,?,?,?,?)');
-    for (const technology of result.technologies) insertTechnology.run(site.id, technology.name, technology.category, technology.host, technology.evidenceType, technology.evidenceValue, technology.sourceUrl, technology.pageKind, technology.confidence);
+    const insertTechnology = database.prepare('INSERT OR IGNORE INTO site_technologies (site_id,name,category,host,evidence_type,evidence_value,source_url,page_kind,confidence,attributed_to_customer) VALUES (?,?,?,?,?,?,?,?,?,?)');
+    for (const technology of result.technologies) insertTechnology.run(site.id, technology.name, technology.category, technology.host, technology.evidenceType, technology.evidenceValue, technology.sourceUrl, technology.pageKind, technology.confidence, technology.attributedToCustomer);
   });
 }
 

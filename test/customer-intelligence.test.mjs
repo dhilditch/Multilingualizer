@@ -4,9 +4,11 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { openDatabase } from '../customer-intelligence/lib/db.mjs';
+import { classifySite, detectSiteState } from '../customer-intelligence/lib/enrichment.mjs';
 import { classifyMultilingualizerEvidence, discoverPageUrl, extractPage } from '../customer-intelligence/lib/extract.mjs';
 import { parsePhpSerialized } from '../customer-intelligence/lib/php-serialize.mjs';
 import { importSqlResult, normaliseDomain } from '../customer-intelligence/import-clients.mjs';
+import { saveResult } from '../customer-intelligence/crawl.mjs';
 
 test('parses the Multilingualizer PHP-serialized installation shape', () => {
   const serialized = 'a:1:{i:0;a:3:{s:3:"url";s:19:"www.example-one.com";s:8:"platform";s:11:"Squarespace";s:9:"languages";a:2:{i:0;s:2:"en";i:1;s:2:"fr";}}}';
@@ -88,4 +90,79 @@ test('extracts platform, Multilingualizer, contact, price and activity evidence'
     ['USD', 123400],
     ['EUR', 123456],
   ]);
+});
+
+test('classifies customer sites into deterministic sectors and peer groups', () => {
+  const classification = classifySite({
+    title: 'Nordic Event Studio',
+    metaDescription: 'A full-service event agency producing conferences, exhibitions and corporate experiences.',
+    whatTheyDo: 'Event management for international clients.',
+    technologies: [
+      { name: 'Google Analytics', category: 'Analytics/tag management' },
+      { name: 'Meta Pixel/Facebook SDK', category: 'Advertising/social' },
+      { name: 'YouTube', category: 'Media/embed' },
+    ],
+    detectedPlatform: 'Squarespace',
+  });
+  assert.equal(classification.sector, 'Events and experiences');
+  assert.equal(classification.businessModel, 'Agency or consultancy');
+  assert.equal(classification.peerGroup, 'Events and experiences · Agency or consultancy');
+  assert.equal(classification.consentUseCase, 'advertising pixels, analytics, embedded media');
+  assert.ok(classification.confidence >= 75);
+});
+
+test('marks parking-provider technology as not belonging to the customer business', () => {
+  const state = detectSiteState({
+    html: '<title>Example is for sale</title><p>Buy this domain</p>',
+    finalUrl: 'https://example.invalid/',
+    technologies: [{ name: 'HugeDomains', category: 'Domain parking' }],
+  });
+  assert.deepEqual(state, {
+    state: 'parked',
+    provider: 'HugeDomains',
+    evidence: ['technology:HugeDomains'],
+  });
+  assert.equal(classifySite({ siteState: 'parked' }).peerGroup, 'Parked domain');
+  assert.equal(detectSiteState({
+    html: '<title>Expired domain listing</title>',
+    finalUrl: 'https://expireddomains.com/domain/example.com',
+  }).provider, 'ExpiredDomains.com');
+});
+
+test('persists enrichment and customer-attribution fields from a fresh crawl', () => {
+  const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'multilingualizer-crawl-save-'));
+  const database = openDatabase(path.join(temporary, 'test.sqlite3'));
+  const client = database.prepare("INSERT INTO clients (source_key,imported_at) VALUES ('test-customer','2026-08-21T00:00:00Z')").run();
+  const inserted = database.prepare("INSERT INTO sites (client_id,domain,supplied_url) VALUES (?,'example.test','https://example.test')").run(client.lastInsertRowid);
+  const site = { id: Number(inserted.lastInsertRowid) };
+  try {
+    saveResult(database, site, {
+      summary: {
+        active: 1, homepageStatus: 200, finalHomepageUrl: 'https://example.test/', detectedPlatform: 'Squarespace',
+        multilingualizerStatus: 'detected', multilingualizerEvidence: ['changeLanguageAndMove'], multilingualStatus: 'detected',
+        multilingualTools: ['Multilingualizer'], multilingualEvidence: [], title: 'Example', metaDescription: '', siteName: 'Example',
+        whatTheyDo: 'An event agency.', aboutUrl: null, aboutTitle: '', aboutText: '', contactUrl: null,
+        emails: [], phones: [], socials: [], currencies: [], minPriceMinor: null, maxPriceMinor: null,
+        visiblePriceCount: 0, productsServices: [], siteState: 'customer_site', parkedProvider: '',
+        sector: 'Events and experiences', businessModel: 'Agency or consultancy',
+        consentUseCase: 'analytics', peerGroup: 'Events and experiences · Agency or consultancy',
+        classificationConfidence: 90, classificationEvidence: ['sector:event'],
+        lastCrawledAt: '2026-08-21T00:00:00Z', crawlError: null,
+      },
+      pages: [], contacts: [], prices: [], signals: [],
+      technologies: [{
+        name: 'Google Analytics', category: 'Analytics/tag management', host: 'googletagmanager.com',
+        evidenceType: 'external-script', evidenceValue: 'https://googletagmanager.com/gtag/js',
+        sourceUrl: 'https://example.test/', pageKind: 'home', confidence: 98, attributedToCustomer: 1,
+      }],
+    });
+    const stored = database.prepare('SELECT site_state,sector,business_model,peer_group FROM sites WHERE id=?').get(site.id);
+    assert.equal(stored.site_state, 'customer_site');
+    assert.equal(stored.sector, 'Events and experiences');
+    assert.equal(stored.business_model, 'Agency or consultancy');
+    assert.equal(stored.peer_group, 'Events and experiences · Agency or consultancy');
+    assert.equal(database.prepare('SELECT attributed_to_customer FROM site_technologies WHERE site_id=?').get(site.id).attributed_to_customer, 1);
+  } finally {
+    database.close();
+  }
 });

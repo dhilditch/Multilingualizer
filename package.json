@@ -18,6 +18,7 @@
     "clients:import": "node customer-intelligence/import-clients.mjs",
     "clients:crawl": "node customer-intelligence/crawl.mjs",
     "clients:reprocess": "node customer-intelligence/reprocess.mjs",
+    "clients:affiliate-opportunities": "node customer-intelligence/affiliate-opportunities.mjs",
     "clients:serve": "node customer-intelligence/server.mjs"
   },
   "dependencies": {

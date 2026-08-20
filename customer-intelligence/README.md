@@ -28,7 +28,9 @@ sites.
 
 `clients:reprocess` reads the retained HTML without making network requests. It
 rebuilds current-language-tool evidence and the third-party technology
-inventory, so new fingerprints can be applied to the complete saved corpus.
+inventory, and deterministically classifies sector, business model, consent use
+case and peer group. New fingerprints and classification rules can therefore be
+applied to the complete saved corpus without requesting the sites again.
 
 Multilingualizer status is evidence-based:
 
@@ -42,6 +44,10 @@ fingerprints are assigned a product and category; unmatched hosts remain under
 `Unclassified third-party` and can still be searched and filtered. This is
 evidence of browser-visible technology, not proof of SaaS products used only on
 the server or hidden behind authenticated pages.
+
+Parked domains are recorded as a separate site state. Technology found on a
+parking provider's page is retained as evidence but marked as not attributable
+to the customer, so it is excluded from aggregate SaaS counts and filters.
 
 The import source is expected to contain a SQL MCP result with `columns` and
 `rows`. A client is eligible only when the source query has already restricted

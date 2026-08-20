@@ -59,6 +59,14 @@ CREATE TABLE IF NOT EXISTS sites (
     max_price_minor INTEGER,
     visible_price_count INTEGER NOT NULL DEFAULT 0,
     products_services_json TEXT NOT NULL DEFAULT '[]',
+    site_state TEXT NOT NULL DEFAULT 'unknown',
+    parked_provider TEXT NOT NULL DEFAULT '',
+    sector TEXT NOT NULL DEFAULT '',
+    business_model TEXT NOT NULL DEFAULT '',
+    consent_use_case TEXT NOT NULL DEFAULT '',
+    peer_group TEXT NOT NULL DEFAULT '',
+    classification_confidence INTEGER NOT NULL DEFAULT 0,
+    classification_evidence_json TEXT NOT NULL DEFAULT '[]',
     last_crawled_at TEXT,
     crawl_error TEXT,
     UNIQUE(client_id, domain)
@@ -143,6 +151,7 @@ CREATE TABLE IF NOT EXISTS site_technologies (
     source_url TEXT NOT NULL,
     page_kind TEXT NOT NULL,
     confidence INTEGER NOT NULL,
+    attributed_to_customer INTEGER NOT NULL DEFAULT 1,
     UNIQUE(site_id, name, host, evidence_type, evidence_value, source_url)
 );
 
