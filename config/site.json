@@ -1,0 +1,19 @@
+{
+  "siteName": "Multilingualizer",
+  "baseUrl": "https://www.multilingualizer.com",
+  "sitemapUrl": "https://www.multilingualizer.com/sitemap_index.xml",
+  "searchConsoleSiteUrl": "sc-domain:multilingualizer.com",
+  "products": {
+    "multilingualizer": [
+      "/product/multilingualizer/"
+    ],
+    "multicurrencyalizer": [
+      "/product/multicurrencyalizer-3/",
+      "/product/multicurrencyalizer/"
+    ],
+    "weglotAffiliate": [
+      "weglot.com"
+    ]
+  },
+  "crawlConcurrency": 6
+}

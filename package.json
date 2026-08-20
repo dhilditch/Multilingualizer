@@ -1,0 +1,24 @@
+{
+  "name": "multilingualizer-growth",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --test && node scripts/check-config.mjs",
+    "check:access": "node scripts/check-access.mjs",
+    "collect": "npm run collect:gsc && npm run collect:ga4 && npm run collect:wp && npm run crawl",
+    "crawl": "node scripts/crawl-site.mjs",
+    "collect:gsc": "node scripts/collect-gsc.mjs",
+    "collect:ga4": "node scripts/collect-ga4.mjs",
+    "collect:wp": "node scripts/wp-content.mjs export",
+    "wp:list": "node scripts/wp-content.mjs list",
+    "wp:draft": "node scripts/wp-content.mjs draft"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.1",
+    "googleapis": "^159.0.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^16.2.1"
+  }
+}

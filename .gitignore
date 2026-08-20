@@ -1,0 +1,7 @@
+.env
+credentials/
+node_modules/
+data/
+reports/generated/
+.DS_Store
+npm-debug.log*
