@@ -13,6 +13,23 @@ This is a hypothesis map until Search Console data identifies the URLs and queri
 | Regional/legal | one information hub per jurisdiction | separate 2026 landing pages and articles for Quebec, Wales, Belgium and Switzerland | Multilingualizer only where technically and legally appropriate |
 | Currency localisation | `/product/multicurrencyalizer-3/` plus a guide hub | legacy `/product/multicurrencyalizer/` and older announcement | Multicurrencyalizer |
 
+## Squarespace and Weglot cornerstone cluster
+
+All eight supporting articles below were created as WordPress drafts on 21 August 2026. They remain drafts until their claims, internal links and final calls to action have been reviewed together.
+
+| Draft | WordPress ID | Primary intent |
+|---|---:|---|
+| Weglot Language Subdomains on Squarespace | 45660 | Understand and configure language subdomains |
+| What Weglot Doesn't Translate on Squarespace | 45661 | Check limitations before buying |
+| Squarespace Weglot SEO Guide | 45662 | Configure and verify multilingual SEO |
+| How Weglot Counts Words on Squarespace | 45663 | Estimate and control translated word usage |
+| Does Weglot Translate Squarespace Checkout, Forms and Emails? | 45664 | Verify transaction and form coverage |
+| Squarespace Multilingual Website Launch Checklist | 45665 | Complete a pre-launch quality check |
+| Is Weglot Worth It for a Small Squarespace Site? | 45666 | Decide between Weglot and a one-time alternative |
+| Squarespace Multilingual Ecommerce Guide | 45667 | Plan catalogue, checkout and customer communication translation |
+
+Each article has one primary intent, links towards the pricing calculator where relevant, and includes a factual Multilingualizer callout: one-time EUR 99, GBP 99 or USD 99, manual translations, same-page JavaScript, no separate language URLs and no protected checkout or account translation.
+
 ## Platform-expansion rule
 
 Add a platform only after four checks:
