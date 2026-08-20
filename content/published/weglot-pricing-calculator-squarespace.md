@@ -4,7 +4,7 @@ slug: weglot-pricing-calculator-squarespace
 excerpt: "Estimate which Weglot plan your Squarespace site needs, then check the costs, limitations, subdomains and untranslated content before signing up."
 status: published
 publishedDate: 2026-08-20
-publishedUrl: https://www.multilingualizer.com/2026/08/20/weglot-pricing-calculator-squarespace/
+publishedUrl: https://www.multilingualizer.com/weglot-pricing-calculator-squarespace/
 ---
 
 If you are trying to price Weglot for a Squarespace site, the monthly figure is not the difficult part. The difficult part is working out how many translated words you will use.
