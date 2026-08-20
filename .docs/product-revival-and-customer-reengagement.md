@@ -87,13 +87,24 @@ The first outreach should be a small, manually reviewed batch. Measure replies, 
 
 ## Discord evidence
 
-The approved Discord exporter completed two bounded scans of all 21 allow-listed Support Channels with no failures:
+The Discord exporter supports explicit channel selection from the frozen allow-list. The relevant history was downloaded from only:
 
-- 13 August 2026 through 20 August 2026;
-- 20 August 2026 through 21 August 2026.
+- `980852343929192548` - Multicurrencyalizer;
+- `980852286182019092` - Multilingualizer.
 
-Both the Multilingualizer and Multicurrencyalizer exports contain zero messages across those windows. The recent returning-customer conversation is therefore earlier than 13 August or inside a thread, which the exporter deliberately excludes.
+The returning-customer conversation spans 5 and 6 August 2026. The customer had used Multilingualizer successfully for years on a Squarespace 7.1 Business site. Squarespace began rewriting a navigation URL so it started with `https://` rather than `javascript:`. Language switching then did nothing in Firefox and Safari, while Chrome opened `about:blank#blocked`.
 
-Before scanning backwards, improve the wrapper so it can select one or more channels from the frozen allow-list. That retains the allow-list boundary while avoiding 21 Discord requests for every date window when only Multilingualizer is relevant.
+The first workaround targeted the desktop header navigation and restored desktop operation, but missed mobile Safari. A broader compatibility shim selected links whose `href` contained `javascript:changeLanguageAndMove(`, removed the unwanted prefix and watched later DOM and `href` mutations. The customer confirmed that this restored both desktop and mobile operation.
+
+This produces four concrete tasks:
+
+1. Reproduce the current Squarespace 7.1 link rewriting on a controlled test site.
+2. Add a backwards-compatibility shim for installed sites using the legacy link format.
+3. Replace `javascript:` URLs in the product with ordinary links or data attributes plus a click handler, so Squarespace and browsers have no executable URL to rewrite or block.
+4. Add desktop and responsive/mobile navigation tests, including navigation rebuilt after page load.
+
+The same customer reported that several contact links on multilingualizer.com did not work and that Discord was the route they eventually found. Audit the live contact routes before any customer re-engagement campaign.
+
+There were no Multicurrencyalizer messages in the downloaded windows.
 
 Discord exports and named-customer findings stay in the private local-data area. Only anonymised product patterns and counts may enter this repository.
