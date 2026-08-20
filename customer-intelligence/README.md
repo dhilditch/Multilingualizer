@@ -14,6 +14,7 @@ Private inputs, HTML and generated databases live below
 npm run clients:import -- data/customer-intelligence/paid-clients-source.json
 npm run clients:crawl -- --limit 10
 npm run clients:crawl -- --workers 6 --delay-ms 250
+npm run clients:reprocess
 npm run clients:serve
 ```
 
@@ -25,12 +26,22 @@ homepage and one About page per site, and retains the fetched HTML locally so
 future extraction rules can be tested without repeatedly requesting customer
 sites.
 
+`clients:reprocess` reads the retained HTML without making network requests. It
+rebuilds current-language-tool evidence and the third-party technology
+inventory, so new fingerprints can be applied to the complete saved corpus.
+
 Multilingualizer status is evidence-based:
 
 - `detected`: its hosted script, script URL or distinctive
   `changeLanguageAndMove` function is present
 - `possible`: only a weaker name or generic language-function marker is present
 - `not_detected`: the fetched homepage contains no current marker
+
+The technology inventory records every external script and iframe host. Known
+fingerprints are assigned a product and category; unmatched hosts remain under
+`Unclassified third-party` and can still be searched and filtered. This is
+evidence of browser-visible technology, not proof of SaaS products used only on
+the server or hidden behind authenticated pages.
 
 The import source is expected to contain a SQL MCP result with `columns` and
 `rows`. A client is eligible only when the source query has already restricted

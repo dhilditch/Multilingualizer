@@ -3,7 +3,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { openDatabase, transaction } from './lib/db.mjs';
-import { classifyMultilingualizerEvidence, discoverPageUrl, extractPage } from './lib/extract.mjs';
+import {
+  classifyMultilingualizerEvidence,
+  discoverPageUrl,
+  extractPage,
+  summariseLanguageTechnology,
+} from './lib/extract.mjs';
 import { fetchPage } from './lib/http.mjs';
 import { DATA_ROOT, HTML_ROOT } from './lib/paths.mjs';
 
@@ -123,6 +128,11 @@ async function inspectSite(site, runId, delayMs) {
   }
   const extractedPages = [home, ...(about ? [about] : [])];
   const evidence = mergeUnique(extractedPages.map((page) => page.multilingualizerEvidence));
+  const active = Number(homeResponse.ok && homeResponse.contentType.toLowerCase().includes('html'));
+  const languageTechnology = summariseLanguageTechnology(
+    extractedPages.map((page) => page.languageTechnology),
+    active === 1,
+  );
   const contacts = [];
   for (const [index, page] of extractedPages.entries()) {
     const sourceUrl = pages[index].finalUrl;
@@ -132,16 +142,23 @@ async function inspectSite(site, runId, delayMs) {
   }
   const prices = mergeUnique(extractedPages.map((page) => page.prices), (price) => `${price.pageKind}:${price.currency}:${price.amountMinor}:${price.context}:${price.sourceUrl}`);
   const productsServices = mergeUnique(extractedPages.map((page) => page.productsServices));
+  const technologies = mergeUnique(
+    extractedPages.map((page) => page.technologies),
+    (value) => `${value.name}:${value.host}:${value.evidenceType}:${value.evidenceValue}:${value.sourceUrl}`,
+  );
   const currencies = [...new Set(prices.map(({ currency }) => currency))].sort();
   const amounts = prices.map(({ amountMinor }) => amountMinor);
   return {
     summary: {
-      active: Number(homeResponse.ok && homeResponse.contentType.toLowerCase().includes('html')),
+      active,
       homepageStatus: homeResponse.status,
       finalHomepageUrl: homeResponse.finalUrl,
       detectedPlatform: home.platform || about?.platform || '',
       multilingualizerStatus: classifyMultilingualizerEvidence(evidence),
       multilingualizerEvidence: evidence,
+      multilingualStatus: languageTechnology.status,
+      multilingualTools: languageTechnology.tools,
+      multilingualEvidence: languageTechnology.evidence,
       title: home.title,
       metaDescription: home.metaDescription,
       siteName: home.siteName,
@@ -164,9 +181,11 @@ async function inspectSite(site, runId, delayMs) {
     pages,
     contacts,
     prices,
+    technologies,
     signals: [
       ...(home.htmlLanguage ? [{ type: 'html_language', value: home.htmlLanguage, sourceUrl: homeResponse.finalUrl, confidence: 90, method: 'html-lang' }] : []),
       ...evidence.map((value) => ({ type: 'multilingualizer_marker', value, sourceUrl: homeResponse.finalUrl, confidence: value === 'multilingualizer-name' ? 60 : 95, method: 'html-source' })),
+      ...languageTechnology.evidence.map(({ tool, marker, confidence }) => ({ type: 'language_tool', value: `${tool || 'Unidentified'}: ${marker}`, sourceUrl: homeResponse.finalUrl, confidence, method: 'retained-html-marker' })),
       ...(home.platform ? [{ type: 'platform', value: home.platform, sourceUrl: homeResponse.finalUrl, confidence: 95, method: 'html-marker' }] : []),
     ],
   };
@@ -177,13 +196,15 @@ function saveResult(database, site, result) {
   transaction(database, () => {
     database.prepare(`UPDATE sites SET
       active=?, homepage_status=?, final_homepage_url=?, detected_platform=?,
-      multilingualizer_status=?, multilingualizer_evidence_json=?, title=?,
+      multilingualizer_status=?, multilingualizer_evidence_json=?, multilingual_status=?,
+      multilingual_tools_json=?, multilingual_evidence_json=?, title=?,
       meta_description=?, site_name=?, what_they_do=?, about_url=?, about_title=?,
       about_text=?, contact_url=?, emails_json=?, phones_json=?, social_profiles_json=?,
       currencies_json=?, min_price_minor=?, max_price_minor=?, visible_price_count=?,
       products_services_json=?, last_crawled_at=?, crawl_error=? WHERE id=?`).run(
       summary.active, summary.homepageStatus, summary.finalHomepageUrl, summary.detectedPlatform,
-      summary.multilingualizerStatus, JSON.stringify(summary.multilingualizerEvidence), summary.title,
+      summary.multilingualizerStatus, JSON.stringify(summary.multilingualizerEvidence), summary.multilingualStatus,
+      JSON.stringify(summary.multilingualTools), JSON.stringify(summary.multilingualEvidence), summary.title,
       summary.metaDescription, summary.siteName, summary.whatTheyDo, summary.aboutUrl, summary.aboutTitle,
       summary.aboutText, summary.contactUrl, JSON.stringify(summary.emails), JSON.stringify(summary.phones),
       JSON.stringify(summary.socials), JSON.stringify(summary.currencies), summary.minPriceMinor,
@@ -191,6 +212,7 @@ function saveResult(database, site, result) {
       summary.lastCrawledAt, summary.crawlError, site.id,
     );
     for (const table of ['contacts', 'prices', 'signals']) database.prepare(`DELETE FROM ${table} WHERE site_id=?`).run(site.id);
+    database.prepare('DELETE FROM site_technologies WHERE site_id=?').run(site.id);
     const insertPage = database.prepare(`INSERT INTO pages (
       site_id,crawl_run_id,page_kind,requested_url,final_url,http_status,content_type,
       response_bytes,response_ms,fetched_at,title,text_excerpt,html_path,content_sha256,error
@@ -202,6 +224,8 @@ function saveResult(database, site, result) {
     for (const price of result.prices) insertPrice.run(site.id, price.pageKind, price.currency, price.amountMinor, price.displayed, price.context, price.sourceUrl, price.evidenceMethod);
     const insertSignal = database.prepare('INSERT OR IGNORE INTO signals (site_id,signal_type,value,source_url,confidence,evidence_method) VALUES (?,?,?,?,?,?)');
     for (const signal of result.signals) insertSignal.run(site.id, signal.type, signal.value, signal.sourceUrl, signal.confidence, signal.method);
+    const insertTechnology = database.prepare('INSERT OR IGNORE INTO site_technologies (site_id,name,category,host,evidence_type,evidence_value,source_url,page_kind,confidence) VALUES (?,?,?,?,?,?,?,?,?)');
+    for (const technology of result.technologies) insertTechnology.run(site.id, technology.name, technology.category, technology.host, technology.evidenceType, technology.evidenceValue, technology.sourceUrl, technology.pageKind, technology.confidence);
   });
 }
 

@@ -54,7 +54,11 @@ test('imports private SQL result rows into a separate SQLite database', () => {
 test('extracts platform, Multilingualizer, contact, price and activity evidence', () => {
   const html = `<!doctype html><html lang="fr"><head><title>Acme Studio</title>
     <meta name="description" content="Independent architectural design studio in Montreal">
+    <link rel="alternate" hreflang="en" href="https://acme.example/en"><link rel="alternate" hreflang="fr" href="https://acme.example/fr">
     <script>window.Static = {SQUARESPACE_CONTEXT:{}}; function changeLanguageAndMove(language){return language}</script>
+    <script src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script src="https://js.hs-scripts.com/123.js"></script>
+    <script src="https://widgets.example.invalid/app.js"></script>
     </head><body><nav><a href="/about-us">About us</a><a href="/contact">Contact</a></nav>
     <main><h1>Architectural services</h1><p>We design sustainable homes and commercial spaces for clients across Quebec.</p>
     <a href="mailto:hello@acme.example">Email</a><a href="https://instagram.com/acme">Instagram</a>
@@ -66,6 +70,11 @@ test('extracts platform, Multilingualizer, contact, price and activity evidence'
   assert.equal(classifyMultilingualizerEvidence(result.multilingualizerEvidence), 'detected');
   assert.equal(classifyMultilingualizerEvidence(['multilingualizer-name']), 'possible');
   assert.equal(classifyMultilingualizerEvidence([]), 'not_detected');
+  assert.deepEqual(result.languageTechnology.tools, ['Multilingualizer', 'Weglot']);
+  assert.ok(result.languageTechnology.hasHreflang);
+  assert.ok(result.technologies.some(({ name }) => name === 'Weglot'));
+  assert.ok(result.technologies.some(({ name }) => name === 'HubSpot'));
+  assert.ok(result.technologies.some(({ name, category }) => name === 'widgets.example.invalid' && category === 'Unclassified third-party'));
   assert.deepEqual(result.contact.emails, ['hello@acme.example']);
   assert.equal(result.contact.socials[0].network, 'instagram');
   assert.equal(result.prices[0].currency, 'EUR');

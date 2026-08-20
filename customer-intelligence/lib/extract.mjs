@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import { detectTechnologies } from './technology.mjs';
 
 const SOCIAL_HOSTS = new Map([
   ['facebook.com', 'facebook'], ['instagram.com', 'instagram'], ['linkedin.com', 'linkedin'],
@@ -12,6 +13,70 @@ const ABOUT_TERMS = [
   'sobre-nos', 'uber-uns', 'ueber-uns', 'chi-siamo', 'om-oss', 'over',
 ];
 const CONTACT_TERMS = ['contact', 'contact-us', 'get-in-touch', 'kontakt', 'contacto', 'contato', 'contactez-nous'];
+
+const LANGUAGE_TOOL_RULES = [
+  ['Weglot', 98, [
+    ['weglot-cdn', /cdn\.weglot\.com\/[^"'\s<]+/i],
+    ['weglot-initializer', /Weglot\.initialize\s*\(/i],
+    ['weglot-switcher', /(?:id|class)=["'][^"']*\bweglot-container\b/i],
+  ]],
+  ['GTranslate', 98, [
+    ['gtranslate-cdn', /cdn\.gtranslate\.net\/[^"'\s<]+/i],
+    ['gtranslate-settings', /window\.gtranslateSettings\s*=/i],
+    ['gtranslate-wrapper', /(?:id|class)=["'][^"']*\bgtranslate_wrapper\b/i],
+  ]],
+  ['TranslatePress', 98, [
+    ['translatepress-assets', /wp-content\/plugins\/translatepress-multilingual\//i],
+    ['translatepress-switcher', /\btrp-language-switcher(?:-container)?\b/i],
+  ]],
+  ['WPML', 98, [
+    ['wpml-assets', /wp-content\/plugins\/sitepress-multilingual-cms(?:_old)?\//i],
+    ['wpml-switcher', /\bwpml-ls(?:-|\b)|\bicl_language_selector\b/i],
+  ]],
+  ['Polylang', 95, [
+    ['polylang-assets', /wp-content\/plugins\/polylang(?:-pro)?\//i],
+    ['polylang-switcher', /\blang-item-(?:[a-z]{2,3}|first|last|current)\b|\bpll_switcher\b/i],
+  ]],
+  ['ConveyThis', 98, [
+    ['conveythis-cdn', /cdn\.conveythis\.com\/javascript\/conveythis\.js/i],
+    ['conveythis-initializer', /ConveyThis_Initializer\.(?:init|start)\s*\(/i],
+  ]],
+  ['Linguise', 98, [
+    ['linguise-cdn', /cdn\.linguise\.com\//i],
+    ['linguise-switcher', /\blinguise[_-](?:switcher|dynamic|language)\b/i],
+  ]],
+  ['Bablic', 98, [
+    ['bablic-cdn', /(?:d|cdn2?)\.bablic\.com\/(?:snippet|js)\//i],
+    ['bablic-data', /\bdata-bablic(?:-|=)/i],
+  ]],
+  ['Localize', 98, [
+    ['localize-cdn', /(?:global\.)?localizecdn\.com\//i],
+    ['localize-initializer', /Localize\.initialize\s*\(/i],
+    ['localize-script', /localizejs\.com\/[^"'\s<]+\.js/i],
+  ]],
+  ['Langify', 95, [
+    ['langify-switcher', /\bly-languages-switcher\b|\blangify-switcher\b/i],
+    ['langify-script', /(?:cdn\.)?langify-app\.com\//i],
+  ]],
+  ['Transcy', 95, [
+    ['transcy-script', /(?:cdn\.)?transcy(?:-app)?\.(?:com|io)\//i],
+    ['transcy-widget', /(?:id|class)=["'][^"']*\btranscy(?:-|_)/i],
+  ]],
+  ['LangShop', 95, [
+    ['langshop-script', /(?:cdn\.)?langshop\.app\//i],
+    ['langshop-widget', /(?:id|class)=["'][^"']*\blangshop(?:-|_)/i],
+  ]],
+  ['Translation Lab', 95, [
+    ['translation-lab-assets', /translation-lab-language-switcher/i],
+  ]],
+  ['Google Translate widget', 95, [
+    ['google-translate-script', /translate\.google\.com\/translate_a\/element\.js/i],
+    ['google-translate-widget', /\bgoogle_translate_element\b/i],
+  ]],
+  ['Wix Multilingual', 95, [
+    ['wix-multilingual', /\bwixMultilingual\b|\bwix-multilingual\b/i],
+  ]],
+];
 
 export function cleanText(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -111,7 +176,7 @@ function detectPlatform(html) {
   return rules.find(([, pattern]) => pattern.test(html))?.[0] ?? '';
 }
 
-function multilingualizerEvidence(html) {
+export function multilingualizerEvidence(html) {
   const rules = [
     ['changeLanguageAndMove', /changeLanguageAndMove\s*\(/i],
     ['changeLanguage', /(?:function\s+changeLanguage|changeLanguage\s*\()/i],
@@ -120,6 +185,75 @@ function multilingualizerEvidence(html) {
     ['multilingualizer-name', /\bmultilingualizer\b/i],
   ];
   return rules.filter(([, pattern]) => pattern.test(html)).map(([name]) => name);
+}
+
+function uniqueEvidence(values) {
+  const found = new Map();
+  for (const value of values.flat()) found.set(`${value.tool}:${value.marker}`, value);
+  return [...found.values()];
+}
+
+export function detectLanguageTechnology(html) {
+  const $ = cheerio.load(html);
+  const tools = new Set();
+  const evidence = [];
+  const mlEvidence = multilingualizerEvidence(html);
+  const mlStatus = classifyMultilingualizerEvidence(mlEvidence);
+  for (const marker of mlEvidence) {
+    evidence.push({
+      tool: 'Multilingualizer',
+      marker,
+      confidence: mlStatus === 'detected' ? 98 : 60,
+    });
+  }
+  if (mlStatus === 'detected') tools.add('Multilingualizer');
+
+  for (const [tool, confidence, markers] of LANGUAGE_TOOL_RULES) {
+    for (const [marker, pattern] of markers) {
+      if (!pattern.test(html)) continue;
+      tools.add(tool);
+      evidence.push({ tool, marker, confidence });
+    }
+  }
+
+  const hreflangs = new Set(
+    $('[hreflang]').map((_, element) => cleanText($(element).attr('hreflang')).toLowerCase()).get()
+      .filter((value) => value && value !== 'x-default'),
+  );
+  if (hreflangs.size >= 2) {
+    evidence.push({ tool: '', marker: `hreflang:${[...hreflangs].sort().join(',')}`, confidence: 90 });
+  }
+
+  const shopifyLanguages = new Set(
+    $('form[action*="/localization"] [name="language_code"] option, localization-form [name="language_code"] option')
+      .map((_, element) => cleanText($(element).attr('value')).toLowerCase()).get().filter(Boolean),
+  );
+  if (shopifyLanguages.size >= 2) {
+    tools.add('Shopify native localisation');
+    evidence.push({ tool: 'Shopify native localisation', marker: 'shopify-language-form', confidence: 95 });
+  }
+
+  const languageSwitcher = $('[class*="language-switcher" i], [id*="language-switcher" i], [class*="language-selector" i], [id*="language-selector" i], [class*="locale-switcher" i], [id*="locale-switcher" i]').length > 0;
+  if (languageSwitcher) evidence.push({ tool: '', marker: 'language-switcher-dom', confidence: 70 });
+
+  return {
+    tools: [...tools].sort(),
+    evidence: uniqueEvidence(evidence),
+    hasHreflang: hreflangs.size >= 2,
+    hasLanguageSwitcher: languageSwitcher,
+  };
+}
+
+export function summariseLanguageTechnology(results, active) {
+  if (!active) return { status: 'unknown', tools: [], evidence: [] };
+  const tools = [...new Set(results.flatMap((result) => result.tools))].sort();
+  const evidence = uniqueEvidence(results.flatMap((result) => result.evidence));
+  const hasHreflang = results.some((result) => result.hasHreflang);
+  const hasLanguageSwitcher = results.some((result) => result.hasLanguageSwitcher);
+  if (tools.length) return { status: 'detected', tools, evidence };
+  if (hasHreflang) return { status: 'detected', tools: ['Unidentified multilingual setup'], evidence };
+  if (hasLanguageSwitcher || evidence.length) return { status: 'possible', tools: ['Unidentified multilingual setup'], evidence };
+  return { status: 'not_detected', tools: [], evidence: [] };
 }
 
 function extractContacts($, sourceUrl, text) {
@@ -232,6 +366,7 @@ export function extractPage(html, sourceUrl, pageKind = 'home') {
   const paragraphs = meaningfulParagraphs($);
   const contact = extractContacts($, sourceUrl, text);
   const evidence = multilingualizerEvidence(html);
+  const languageTechnology = detectLanguageTechnology(html);
   return {
     title,
     metaDescription,
@@ -242,7 +377,9 @@ export function extractPage(html, sourceUrl, pageKind = 'home') {
     whatTheyDo: cleanText(metaDescription || jsonDescription || paragraphs[0] || $('h1').first().text()).slice(0, 1200),
     platform: detectPlatform(html),
     multilingualizerEvidence: evidence,
-    multilingualizerStatus: evidence.length ? 'detected' : 'not_detected',
+    multilingualizerStatus: classifyMultilingualizerEvidence(evidence),
+    languageTechnology,
+    technologies: detectTechnologies(html, sourceUrl, pageKind),
     contact,
     prices: extractPrices(text, jsonLd, sourceUrl, pageKind),
     productsServices: productsAndServices($, jsonLd),

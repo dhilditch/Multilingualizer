@@ -17,6 +17,7 @@
     "wp:draft": "node scripts/wp-content.mjs draft",
     "clients:import": "node customer-intelligence/import-clients.mjs",
     "clients:crawl": "node customer-intelligence/crawl.mjs",
+    "clients:reprocess": "node customer-intelligence/reprocess.mjs",
     "clients:serve": "node customer-intelligence/server.mjs"
   },
   "dependencies": {

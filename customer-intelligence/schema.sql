@@ -40,6 +40,9 @@ CREATE TABLE IF NOT EXISTS sites (
     detected_platform TEXT NOT NULL DEFAULT '',
     multilingualizer_status TEXT NOT NULL DEFAULT 'unknown',
     multilingualizer_evidence_json TEXT NOT NULL DEFAULT '[]',
+    multilingual_status TEXT NOT NULL DEFAULT 'unknown',
+    multilingual_tools_json TEXT NOT NULL DEFAULT '[]',
+    multilingual_evidence_json TEXT NOT NULL DEFAULT '[]',
     title TEXT NOT NULL DEFAULT '',
     meta_description TEXT NOT NULL DEFAULT '',
     site_name TEXT NOT NULL DEFAULT '',
@@ -64,7 +67,6 @@ CREATE TABLE IF NOT EXISTS sites (
 CREATE INDEX IF NOT EXISTS sites_domain_idx ON sites(domain);
 CREATE INDEX IF NOT EXISTS sites_status_idx
     ON sites(active, multilingualizer_status, detected_platform);
-
 CREATE TABLE IF NOT EXISTS crawl_runs (
     id INTEGER PRIMARY KEY,
     started_at TEXT NOT NULL,
@@ -129,3 +131,20 @@ CREATE TABLE IF NOT EXISTS signals (
     evidence_method TEXT NOT NULL,
     UNIQUE(site_id, signal_type, value, source_url, evidence_method)
 );
+
+CREATE TABLE IF NOT EXISTS site_technologies (
+    id INTEGER PRIMARY KEY,
+    site_id INTEGER NOT NULL REFERENCES sites(id) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    category TEXT NOT NULL,
+    host TEXT NOT NULL DEFAULT '',
+    evidence_type TEXT NOT NULL,
+    evidence_value TEXT NOT NULL,
+    source_url TEXT NOT NULL,
+    page_kind TEXT NOT NULL,
+    confidence INTEGER NOT NULL,
+    UNIQUE(site_id, name, host, evidence_type, evidence_value, source_url)
+);
+
+CREATE INDEX IF NOT EXISTS site_technologies_name_idx
+    ON site_technologies(name, category, site_id);
