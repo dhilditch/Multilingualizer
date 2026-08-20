@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once dirname(__DIR__) . '/includes/class-msa-pricing.php';
 require_once dirname(__DIR__) . '/includes/class-msa-html-audit.php';
+require_once dirname(__DIR__) . '/includes/class-msa-dated-redirect.php';
 
 if (!function_exists('wp_strip_all_tags')) {
     function wp_strip_all_tags(string $text): string
@@ -57,5 +58,18 @@ check('navigation, page body and SEO text are counted', $audit['estimated_source
 check('script contents are excluded', $audit['estimated_source_words'] < 20);
 check('page language is detected', $audit['lang'] === 'en');
 check('relative image URLs are made absolute', $audit['images'][0] === 'https://example.com/bowl.jpg');
+
+check(
+    'dated post paths return the canonical post slug',
+    MSA_Dated_Redirect::slug_from_path('/2026/08/20/weglot-pricing-calculator-squarespace/') === 'weglot-pricing-calculator-squarespace'
+);
+check(
+    'ordinary post-name paths are not treated as legacy dates',
+    MSA_Dated_Redirect::slug_from_path('/weglot-pricing-calculator-squarespace/') === null
+);
+check(
+    'invalid calendar segments are not treated as legacy dates',
+    MSA_Dated_Redirect::slug_from_path('/2026/99/99/weglot-pricing-calculator-squarespace/') === null
+);
 
 exit($failures === 0 ? 0 : 1);

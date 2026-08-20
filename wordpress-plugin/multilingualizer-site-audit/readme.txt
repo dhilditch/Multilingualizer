@@ -2,7 +2,7 @@
 Contributors: multilingualizer
 Requires at least: 6.4
 Requires PHP: 8.0
-Stable tag: 0.2.0
+Stable tag: 0.2.1
 
 Squarespace Weglot pricing calculator and consent-based, rate-limited public website audit.
 

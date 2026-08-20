@@ -19,6 +19,7 @@ final class MSA_Plugin
         add_action('msa_process_audit', [self::class, 'process_audit'], 10, 1);
         add_action('msa_cleanup_audit_jobs', [MSA_Queue::class, 'cleanup']);
         add_action('rest_api_init', [self::class, 'register_worker_routes']);
+        add_action('template_redirect', [MSA_Dated_Redirect::class, 'maybe_redirect'], 1);
     }
 
     public static function shortcode(): string
