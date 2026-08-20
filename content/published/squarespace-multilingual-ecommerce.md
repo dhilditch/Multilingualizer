@@ -4,7 +4,9 @@ slug: squarespace-multilingual-ecommerce
 excerpt: "Plan and test a multilingual Squarespace store, including products, translated URLs, checkout, customer emails, pricing, shipping and ongoing updates."
 categoryIds: [7, 828]
 wpPostId: 45667
-status: draft
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/squarespace-multilingual-ecommerce/
 ---
 
 A multilingual Squarespace store needs more than translated product descriptions.

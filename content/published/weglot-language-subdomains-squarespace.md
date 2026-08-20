@@ -4,7 +4,9 @@ slug: weglot-language-subdomains-squarespace
 excerpt: "Set up Weglot language subdomains on Squarespace, add the right DNS records and verify SSL, hreflang and translated URLs before launch."
 categoryIds: [7, 828]
 wpPostId: 45660
-status: draft
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/weglot-language-subdomains-squarespace/
 ---
 
 Connecting Weglot to Squarespace is the easy part. The bit that causes confusion is the language subdomain setup.

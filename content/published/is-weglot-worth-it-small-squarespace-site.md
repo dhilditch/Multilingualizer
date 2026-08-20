@@ -4,7 +4,9 @@ slug: is-weglot-worth-it-small-squarespace-site
 excerpt: "Decide whether Weglot is worth paying for on a small Squarespace site by comparing word count, SEO, workflow, limitations and one-time alternatives."
 categoryIds: [7, 828]
 wpPostId: 45666
-status: draft
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/is-weglot-worth-it-small-squarespace-site/
 ---
 
 Weglot can be worth it for a small Squarespace site, but page count is not the deciding factor.

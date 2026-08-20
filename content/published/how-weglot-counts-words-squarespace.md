@@ -4,7 +4,9 @@ slug: how-weglot-counts-words-squarespace
 excerpt: "Understand Weglot's translated-word count, what Squarespace content is included, why estimates differ and how to avoid choosing the wrong plan."
 categoryIds: [7, 828]
 wpPostId: 45663
-status: draft
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/how-weglot-counts-words-squarespace/
 ---
 
 Weglot does not price a Squarespace site by page count or traffic. Its plan limits are based mainly on translated words and destination languages.

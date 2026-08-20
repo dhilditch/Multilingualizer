@@ -4,7 +4,9 @@ slug: what-weglot-does-not-translate-squarespace
 excerpt: "See the Squarespace features Weglot does not translate, what may need dynamic rules, and how to test the complete visitor journey before paying."
 categoryIds: [7, 828]
 wpPostId: 45661
-status: draft
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/what-weglot-does-not-translate-squarespace/
 ---
 
 Weglot translates most of a normal Squarespace website, but "most" is not a useful specification when the missing part contains your booking form, customer login or follow-up campaign.

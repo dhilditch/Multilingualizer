@@ -4,7 +4,9 @@ slug: squarespace-multilingual-launch-checklist
 excerpt: "A practical Squarespace multilingual launch checklist covering content, Weglot, DNS, SEO, forms, ecommerce, mobile testing and measurement."
 categoryIds: [7, 828]
 wpPostId: 45665
-status: draft
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/squarespace-multilingual-launch-checklist/
 ---
 
 Launching a multilingual Squarespace site is not the moment to discover that nobody has translated the validation messages, the French subdomain has no certificate or the order emails are still in English.

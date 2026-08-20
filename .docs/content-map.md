@@ -15,9 +15,9 @@ This is a hypothesis map until Search Console data identifies the URLs and queri
 
 ## Squarespace and Weglot cornerstone cluster
 
-All eight supporting articles below were created as WordPress drafts on 21 August 2026. They remain drafts until their claims, internal links and final calls to action have been reviewed together.
+All eight supporting articles below were published on 21 August 2026. Dave will review them on the live site and any follow-up edits should retain the same canonical URLs.
 
-| Draft | WordPress ID | Primary intent |
+| Article | WordPress ID | Primary intent |
 |---|---:|---|
 | Weglot Language Subdomains on Squarespace | 45660 | Understand and configure language subdomains |
 | What Weglot Doesn't Translate on Squarespace | 45661 | Check limitations before buying |

@@ -4,7 +4,9 @@ slug: weglot-squarespace-checkout-forms-emails
 excerpt: "Check how Weglot handles Squarespace checkout, forms, customer emails, accounts and third-party services before launching another language."
 categoryIds: [7, 828]
 wpPostId: 45664
-status: draft
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/weglot-squarespace-checkout-forms-emails/
 ---
 
 A translated product page is not a translated buying journey.

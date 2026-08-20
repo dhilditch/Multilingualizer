@@ -4,7 +4,9 @@ slug: squarespace-weglot-seo
 excerpt: "Configure and audit Weglot SEO on Squarespace, including translated URLs, hreflang, canonicals, metadata, indexation and common errors."
 categoryIds: [7, 828]
 wpPostId: 45662
-status: draft
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/squarespace-weglot-seo/
 ---
 
 A translated page is not automatically a multilingual SEO page.
