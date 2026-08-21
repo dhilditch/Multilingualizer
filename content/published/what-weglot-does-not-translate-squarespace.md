@@ -100,9 +100,7 @@ It is a poor fit when the unsupported step is the product itself. A booking busi
 
 ## If you do not want a monthly translation plan
 
-> **Prefer to enter the translations yourself and pay once?** Multilingualizer is a €99/£99/$99 one-time option for compatible sites. It controls on-page text using JavaScript. It does not machine-translate your copy and does not translate protected checkout or account screens, so use the same journey audit before buying.
-
-Multilingualizer can suit a small brochure site with carefully maintained translations. It is not an escape from the parts of Squarespace that do not allow third-party JavaScript.
+> **Our very own [Multilingualizer](/product/multilingualizer/) is a [ssp_price product="4462"] one-time purchase.** It works directly inside the Squarespace editor, so you add and manage translations where you already edit your site instead of learning Weglot's interface. It does not machine-translate content, provide Weglot's separate language URLs or translate protected checkout/account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
 ## Next steps
 

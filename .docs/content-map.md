@@ -28,7 +28,7 @@ All eight supporting articles below were published on 21 August 2026. Dave will 
 | Is Weglot Worth It for a Small Squarespace Site? | 45666 | Decide between Weglot and a one-time alternative |
 | Squarespace Multilingual Ecommerce Guide | 45667 | Plan catalogue, checkout and customer communication translation |
 
-Each article has one primary intent, links towards the pricing calculator where relevant, and includes a factual Multilingualizer callout: one-time EUR 99, GBP 99 or USD 99, manual translations, same-page JavaScript, no separate language URLs and no protected checkout or account translation.
+Each article has one primary intent, links towards the pricing calculator where relevant, and includes a factual Multilingualizer callout: a dynamically displayed one-time price, manual translations, same-page JavaScript, no separate language URLs and no protected checkout or account translation.
 
 ## Platform-expansion rule
 

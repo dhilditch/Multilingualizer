@@ -2,7 +2,7 @@
 Contributors: multilingualizer
 Requires at least: 6.4
 Requires PHP: 8.0
-Stable tag: 0.2.1
+Stable tag: 0.2.2
 
 Squarespace Weglot pricing calculator and consent-based, rate-limited public website audit.
 
@@ -11,6 +11,8 @@ Squarespace Weglot pricing calculator and consent-based, rate-limited public web
 1. Upload and activate the plugin.
 2. Add `[multilingualizer_weglot_calculator]` to a page.
 3. Confirm WordPress cron and outbound email work before enabling full reports.
+
+Use `[ssp_price product="4462"]` wherever the current Multilingualizer price should appear. The shortcode uses WooCommerce price HTML so Super Speedy AJAX Prices can refresh it for the visitor's country.
 
 == Privacy and safety ==
 

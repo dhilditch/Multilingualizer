@@ -2,13 +2,13 @@
 /**
  * Plugin Name: Multilingualizer Site Audit
  * Description: Squarespace Weglot pricing calculator and consent-based website audit.
- * Version: 0.2.1
+ * Version: 0.2.2
  * Author: Multilingualizer
  */
 
 defined('ABSPATH') || exit;
 
-define('MSA_VERSION', '0.2.1');
+define('MSA_VERSION', '0.2.2');
 define('MSA_FILE', __FILE__);
 define('MSA_DIR', plugin_dir_path(__FILE__));
 define('MSA_URL', plugin_dir_url(__FILE__));

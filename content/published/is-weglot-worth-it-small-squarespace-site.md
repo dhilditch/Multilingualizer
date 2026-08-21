@@ -108,9 +108,7 @@ Products, variants, checkout states and customer emails increase the scope. Wegl
 
 ## The one-time alternative
 
-> **Multilingualizer costs €99/£99/$99 once.** It suits compatible sites where the owner supplies and maintains the translations and accepts a same-page JavaScript method. It does not provide Weglot's machine translation workflow, separate indexable language URLs or protected checkout/account translation. Check current Squarespace compatibility before buying.
-
-For a small brochure site, those trade-offs can be perfectly reasonable. For a store or an SEO-led project, they may rule it out.
+> **Our very own [Multilingualizer](/product/multilingualizer/) is a [ssp_price product="4462"] one-time purchase.** It works directly inside the Squarespace editor, so you add and manage translations where you already edit your site instead of learning Weglot's interface. It does not machine-translate content, provide Weglot's separate language URLs or translate protected checkout/account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
 ## A five-question decision
 

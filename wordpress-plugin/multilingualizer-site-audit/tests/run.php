@@ -5,11 +5,54 @@ declare(strict_types=1);
 require_once dirname(__DIR__) . '/includes/class-msa-pricing.php';
 require_once dirname(__DIR__) . '/includes/class-msa-html-audit.php';
 require_once dirname(__DIR__) . '/includes/class-msa-dated-redirect.php';
+require_once dirname(__DIR__) . '/includes/class-msa-plugin.php';
 
 if (!function_exists('wp_strip_all_tags')) {
     function wp_strip_all_tags(string $text): string
     {
         return strip_tags($text);
+    }
+}
+
+if (!function_exists('shortcode_atts')) {
+    function shortcode_atts(array $defaults, array $attributes): array
+    {
+        return array_merge($defaults, array_intersect_key($attributes, $defaults));
+    }
+}
+
+if (!function_exists('absint')) {
+    function absint($value): int
+    {
+        return abs((int) $value);
+    }
+}
+
+if (!function_exists('wp_kses_post')) {
+    function wp_kses_post(string $html): string
+    {
+        return $html;
+    }
+}
+
+if (!function_exists('wc_get_product')) {
+    function wc_get_product(int $product_id): ?object
+    {
+        if ($product_id !== 4462) {
+            return null;
+        }
+
+        return new class {
+            public function is_visible(): bool
+            {
+                return true;
+            }
+
+            public function get_price_html(): string
+            {
+                return '<span class="price ajax-price" data-product-id="4462">€99.00</span>';
+            }
+        };
     }
 }
 
@@ -71,5 +114,10 @@ check(
     'invalid calendar segments are not treated as legacy dates',
     MSA_Dated_Redirect::slug_from_path('/2026/99/99/weglot-pricing-calculator-squarespace/') === null
 );
+
+$dynamic_price = MSA_Plugin::price_shortcode(['product' => '4462']);
+check('price shortcode preserves the AJAX Prices product wrapper', str_contains($dynamic_price, 'class="price ajax-price"'));
+check('price shortcode identifies the WooCommerce product', str_contains($dynamic_price, 'data-product-id="4462"'));
+check('price shortcode rejects unknown products', MSA_Plugin::price_shortcode(['product' => '9999']) === '');
 
 exit($failures === 0 ? 0 : 1);

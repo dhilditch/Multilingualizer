@@ -32,7 +32,7 @@ A small-site owner needs a decision based on word count, maintenance, SEO, trans
 
 # Product fit and CTA
 
-- Balanced dual CTA: calculator for Weglot, €99/£99/$99 one-time Multilingualizer for a compatible manual site.
+- Balanced dual CTA: calculator for Weglot, dynamically priced one-time Multilingualizer for a compatible manual site.
 
 # Success metric
 

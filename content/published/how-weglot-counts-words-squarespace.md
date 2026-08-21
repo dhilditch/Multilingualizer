@@ -117,7 +117,7 @@ If the site sits just under a limit before launch, budget for growth. A new dest
 
 ## If you do not want a monthly translation plan
 
-> **Multilingualizer is a €99/£99/$99 one-time option** for compatible sites where you supply and maintain the translations. It does not charge by translated word count or traffic, but it also does not provide Weglot's machine translation workflow, separate translated URLs or protected checkout/account translation. Check the actual requirements before choosing on price alone.
+> **Our very own [Multilingualizer](/product/multilingualizer/) is a [ssp_price product="4462"] one-time purchase.** It works directly inside the Squarespace editor, so you add and manage translations where you already edit your site instead of learning Weglot's interface. It does not machine-translate content, provide Weglot's separate language URLs or translate protected checkout/account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
 ## Calculate your own site
 

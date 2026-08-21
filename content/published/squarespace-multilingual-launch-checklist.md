@@ -167,9 +167,7 @@ See the [Squarespace Weglot SEO guide](/squarespace-weglot-seo/) for the checks 
 
 ## If you do not want a monthly translation plan
 
-> **Multilingualizer is a €99/£99/$99 one-time option** for compatible small sites where you enter and maintain translations yourself. It does not machine-translate content, provide Weglot's separate language URLs or translate protected checkout/account screens. Use the same checklist and check current Squarespace compatibility before buying.
-
-For a small brochure site, that trade can be reasonable. For multilingual SEO or a translated ecommerce journey, the missing capabilities may be the whole project.
+> **Our very own [Multilingualizer](/product/multilingualizer/) is a [ssp_price product="4462"] one-time purchase.** It works directly inside the Squarespace editor, so you add and manage translations where you already edit your site instead of learning Weglot's interface. It does not machine-translate content, provide Weglot's separate language URLs or translate protected checkout/account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
 ## Sources checked 21 August 2026
 

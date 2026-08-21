@@ -9,6 +9,7 @@ final class MSA_Plugin
     public static function boot(): void
     {
         add_action('plugins_loaded', [MSA_Queue::class, 'maybe_install']);
+        add_action('init', [self::class, 'register_price_shortcode']);
         add_shortcode('multilingualizer_weglot_calculator', [self::class, 'shortcode']);
         add_action('wp_ajax_nopriv_msa_calculate', [self::class, 'calculate']);
         add_action('wp_ajax_msa_calculate', [self::class, 'calculate']);
@@ -20,6 +21,31 @@ final class MSA_Plugin
         add_action('msa_cleanup_audit_jobs', [MSA_Queue::class, 'cleanup']);
         add_action('rest_api_init', [self::class, 'register_worker_routes']);
         add_action('template_redirect', [MSA_Dated_Redirect::class, 'maybe_redirect'], 1);
+    }
+
+    public static function register_price_shortcode(): void
+    {
+        if (!shortcode_exists('ssp_price')) {
+            add_shortcode('ssp_price', [self::class, 'price_shortcode']);
+        }
+    }
+
+    public static function price_shortcode($attributes): string
+    {
+        if (!function_exists('wc_get_product')) {
+            return '';
+        }
+
+        $attributes = shortcode_atts([
+            'product' => 0,
+        ], is_array($attributes) ? $attributes : [], 'ssp_price');
+        $product = wc_get_product(absint($attributes['product']));
+
+        if (!$product || !$product->is_visible()) {
+            return '';
+        }
+
+        return '<span class="ssp-price-inline">' . wp_kses_post($product->get_price_html()) . '</span>';
     }
 
     public static function shortcode(): string

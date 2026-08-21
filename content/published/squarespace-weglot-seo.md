@@ -143,9 +143,7 @@ Use Weglot's URL management to synchronise missing pages, link language versions
 
 ## If you do not want a monthly translation plan
 
-> **Multilingualizer costs €99/£99/$99 once** and can fit a compatible small site where you enter and maintain translations yourself. Its same-page JavaScript approach is not the same SEO model as Weglot's separate translated URLs. If organic rankings for each language are a primary requirement, treat that difference as a requirement, not a footnote.
-
-Check current Squarespace compatibility before buying and do not claim separate indexable language URLs unless your implementation genuinely provides them.
+> **Our very own [Multilingualizer](/product/multilingualizer/) is a [ssp_price product="4462"] one-time purchase.** It works directly inside the Squarespace editor, so you add and manage translations where you already edit your site instead of learning Weglot's interface. It does not machine-translate content, provide Weglot's separate language URLs or translate protected checkout/account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
 ## Next steps
 
