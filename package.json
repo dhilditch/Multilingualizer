@@ -19,6 +19,7 @@
     "clients:crawl": "node customer-intelligence/crawl.mjs",
     "clients:reprocess": "node customer-intelligence/reprocess.mjs",
     "clients:affiliate-opportunities": "node customer-intelligence/affiliate-opportunities.mjs",
+    "clients:prepare-elfsight-assets": "node customer-intelligence/prepare-elfsight-article-assets.mjs",
     "clients:serve": "node customer-intelligence/server.mjs"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "dotenv": "^17.2.1",
     "googleapis": "^159.0.0",
     "gray-matter": "^4.0.3",
-    "marked": "^16.2.1"
+    "marked": "^16.2.1",
+    "pngjs": "^7.0.0"
   }
 }

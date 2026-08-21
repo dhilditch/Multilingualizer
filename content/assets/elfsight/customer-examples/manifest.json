@@ -1,0 +1,79 @@
+{
+  "capturedAt": "2026-08-21",
+  "variants": {
+    "clean": "Pixel-faithful crop with no added annotation",
+    "annotated": "Same crop with a descriptive header and orange widget outline"
+  },
+  "assets": [
+    {
+      "filename": "elfsight-whatsapp-chat-flash-traducoes.png",
+      "customerDomain": "flashtraducoes.com.br",
+      "sourceUrl": "https://flashtraducoes.com.br/",
+      "widgets": ["WhatsApp Chat"],
+      "alt": "Elfsight WhatsApp Chat widget open on the Flash Traduções website"
+    },
+    {
+      "filename": "elfsight-all-in-one-chat-fore-management.png",
+      "customerDomain": "foremanagement.com",
+      "sourceUrl": "https://www.foremanagement.com/",
+      "widgets": ["All-in-One Chat"],
+      "alt": "Elfsight All-in-One Chat widget offering WhatsApp and Line on the Fore Management website"
+    },
+    {
+      "filename": "elfsight-google-reviews-helvate.png",
+      "customerDomain": "helvate.ch",
+      "sourceUrl": "https://www.helvate.ch/",
+      "widgets": ["Google Reviews"],
+      "alt": "Elfsight Google Reviews carousel on the Helvate website"
+    },
+    {
+      "filename": "elfsight-photo-gallery-whatsapp-chat-joyful-tours.png",
+      "customerDomain": "joyfultoursrd.com",
+      "sourceUrl": "https://www.joyfultoursrd.com/",
+      "widgets": ["Photo Gallery", "WhatsApp Chat"],
+      "alt": "Elfsight Photo Gallery and open WhatsApp Chat widget on the Joyful Tours website"
+    },
+    {
+      "filename": "elfsight-all-in-one-reviews-onlinekarma.png",
+      "customerDomain": "onlinekarma.ch",
+      "sourceUrl": "https://www.onlinekarma.ch/agentur",
+      "widgets": ["All-in-One Reviews"],
+      "alt": "Elfsight All-in-One Reviews carousel on the onlineKarma agency page"
+    },
+    {
+      "filename": "elfsight-number-counter-yes-we-connect.png",
+      "customerDomain": "yesweconnect.nl",
+      "sourceUrl": "https://yesweconnect.nl/",
+      "widgets": ["Number Counter"],
+      "alt": "Elfsight Number Counter showing onboarding figures on the Yes We Connect website"
+    },
+    {
+      "filename": "elfsight-google-reviews-eometric.png",
+      "customerDomain": "eometric.squarespace.com",
+      "sourceUrl": "https://eometric.squarespace.com/",
+      "widgets": ["Google Reviews"],
+      "alt": "Elfsight Google Reviews cards displaying student testimonials on the Eometric website"
+    },
+    {
+      "filename": "elfsight-all-in-one-reviews-rider-experience.png",
+      "customerDomain": "theriderexperience.com",
+      "sourceUrl": "https://www.theriderexperience.com/",
+      "widgets": ["All-in-One Reviews", "WhatsApp Chat"],
+      "alt": "Elfsight All-in-One Reviews widget and WhatsApp contact button on The Rider Experience website"
+    },
+    {
+      "filename": "elfsight-tripadvisor-reviews-yume-voyages.png",
+      "customerDomain": "yume-voyages.com",
+      "sourceUrl": "https://www.yume-voyages.com/",
+      "widgets": ["Reviews from Tripadvisor", "WhatsApp Chat"],
+      "alt": "Elfsight Tripadvisor Reviews widget and WhatsApp button on the Yume Voyages website"
+    },
+    {
+      "filename": "elfsight-instagram-feed-kitesurfspot.png",
+      "customerDomain": "kitesurfspot.nl",
+      "sourceUrl": "https://www.kitesurfspot.nl/over-kitesurfspot",
+      "widgets": ["Instagram Feed"],
+      "alt": "Elfsight Instagram Feed showing kitesurfing posts on the Kitesurfspot website"
+    }
+  ]
+}
