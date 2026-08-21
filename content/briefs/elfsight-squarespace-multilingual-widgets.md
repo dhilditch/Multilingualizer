@@ -6,7 +6,7 @@ contentType: article
 primaryQuery: best Squarespace widgets for multilingual sites
 searchIntent: commercial investigation
 commercialRoute: elfsight-affiliate
-status: briefed
+status: published
 ---
 
 # Problem

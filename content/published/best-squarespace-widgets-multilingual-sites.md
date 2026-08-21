@@ -3,7 +3,10 @@ title: "Useful Squarespace Widgets for Multilingual Sites, with Real Examples"
 slug: best-squarespace-widgets-multilingual-sites
 excerpt: "Real customer data and screenshots showing which Elfsight widgets appear on multilingual sites, plus what to test before adding reviews, chat, counters or social feeds to Squarespace."
 categoryIds: [7, 828]
-status: draft
+wpPostId: 45694
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/best-squarespace-widgets-multilingual-sites/
 affiliateProgramme: elfsight
 affiliateLinkStatus: pending
 ---
@@ -14,7 +17,9 @@ I checked 821 reachable sites supplied by Multilingualizer customers and found E
 
 The result is a more useful list than “94 widgets you could install”. It shows which widgets multilingual site owners were actually using in August 2026.
 
-**Affiliate disclosure:** I intend to use Elfsight affiliate links in this guide after the account and tracking are configured. If you buy through one, I may earn a commission. You pay the same price either way.
+The wider [multilingual Squarespace customer study](/who-uses-multilingual-squarespace/) explains the 674-customer observable population, languages, countries and sectors behind these figures.
+
+**Affiliate disclosure:** some product links in this guide may be affiliate links. If you buy through one, I may earn a commission. You pay the same price either way.
 
 ## The widgets customers actually used
 
@@ -44,7 +49,7 @@ These are minimum observable-use rates. A widget restricted to an uncrawled page
 
 Google Reviews and All-in-One Reviews are the clearest pattern in the sample. A service business can show recent public proof beside the service description without copying every review into Squarespace by hand.
 
-![Elfsight Google Reviews widget displayed on the bilingual Helvate website](../assets/elfsight/customer-examples/annotated/elfsight-google-reviews-helvate.png)
+![Elfsight Google Reviews widget displayed on the bilingual Helvate website](https://www.multilingualizer.com/assets/elfsight-google-reviews-helvate.png)
 
 Helvate uses an Elfsight Google Reviews carousel below its service copy. The page has French and English language controls, while the review content visible in the captured version is French.
 
@@ -62,7 +67,7 @@ Use Google Reviews when one Google Business Profile is the source you want. Use 
 
 Chat widgets are the second strong pattern. They are particularly visible on travel, professional-service and internationally focused sites where a visitor may prefer a familiar messaging app over a form.
 
-![Elfsight All-in-One Chat widget displayed on Fore Management](../assets/elfsight/customer-examples/annotated/elfsight-all-in-one-chat-fore-management.png)
+![Elfsight All-in-One Chat widget displayed on Fore Management](https://www.multilingualizer.com/assets/elfsight-all-in-one-chat-fore-management.png)
 
 Before installing a floating chat button, check:
 
@@ -78,7 +83,7 @@ A translated greeting is not useful if the conversation immediately falls back t
 
 A number counter works when the figure is evidence: participants trained, projects completed, years operating or locations served.
 
-![Elfsight Number Counter showing onboarding statistics on the Dutch Yes We Connect website](../assets/elfsight/customer-examples/annotated/elfsight-number-counter-yes-we-connect.png)
+![Elfsight Number Counter showing onboarding statistics on the Dutch Yes We Connect website](https://www.multilingualizer.com/assets/elfsight-number-counter-yes-we-connect.png)
 
 Yes We Connect uses three counters to show onboarding reach and participant ratings. The figures are integrated into the page rather than floating over it.
 
@@ -90,7 +95,7 @@ Elfsight is not the only route here. Spark Plugin includes an animated Number Co
 
 Social and gallery widgets make sense for businesses whose current work is visual: travel, sport, fashion, food, photography and events.
 
-![Elfsight Instagram Feed showing recent kitesurfing posts on Kitesurfspot](../assets/elfsight/customer-examples/annotated/elfsight-instagram-feed-kitesurfspot.png)
+![Elfsight Instagram Feed showing recent kitesurfing posts on Kitesurfspot](https://www.multilingualizer.com/assets/elfsight-instagram-feed-kitesurfspot.png)
 
 Kitesurfspot uses an Elfsight Instagram feed on a site with English and German navigation. Instagram captions are user-authored social content, so they should not be assumed to change with the website language.
 
@@ -102,7 +107,7 @@ For a normal image gallery stored in Squarespace, use the native gallery first. 
 
 Hospitality businesses often have useful reviews spread across more than one platform.
 
-![Elfsight Tripadvisor Reviews widget on the multilingual Yume Voyages website](../assets/elfsight/customer-examples/annotated/elfsight-tripadvisor-reviews-yume-voyages.png)
+![Elfsight Tripadvisor Reviews widget on the multilingual Yume Voyages website](https://www.multilingualizer.com/assets/elfsight-tripadvisor-reviews-yume-voyages.png)
 
 Yume Voyages uses Tripadvisor Reviews alongside WhatsApp Chat. This is a sensible combination for a travel business: public proof for the visitor who is still evaluating, and a direct conversation route for itinerary questions.
 
@@ -157,7 +162,7 @@ Do not install a subscription platform to change one border radius. Equally, do 
 
 Elfsight handles the widget. It does not replace the language system for the surrounding Squarespace page.
 
-[Our very own Multilingualizer](/product/multilingualizer/) works directly inside the Squarespace editor, so you add and manage translations where you already edit the site. It is a one-time purchase and there are no monthly translation fees.
+> **Our very own [Multilingualizer](/product/multilingualizer/) is a [ssp_price product="4462"] one-time purchase.** It works directly inside the Squarespace editor, so you add and manage translations where you already edit your site instead of learning another interface. It does not machine-translate content, provide separate language URLs or translate protected checkout and account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
 Use the page language system for headings, explanations and calls to action. Then configure and test the widget's own language behaviour separately.
 

@@ -1,0 +1,29 @@
+{
+  "capturedAt": "2026-08-21",
+  "assets": [
+    {
+      "sourceUrl": "https://germanphysiks.squarespace.com/",
+      "customerDomain": "germanphysiks.squarespace.com",
+      "feature": "Announcement bar and navigation treatment",
+      "language": "English",
+      "evidence": "Spark code includes the announcement and navigation modules on the page",
+      "files": [
+        "spark-plugin-announcement-bar-german-physiks-english-wide.png",
+        "spark-plugin-announcement-bar-german-physiks-english-close-up.png"
+      ],
+      "alt": "Spark Plugin announcement bar and navigation treatment on the German Physiks Squarespace website"
+    },
+    {
+      "sourceUrl": "https://www.minervaedu.com/",
+      "customerDomain": "minervaedu.com",
+      "feature": "Animated headline treatment",
+      "language": "English",
+      "evidence": "Spark code and its rendered split headline spans are present on the page",
+      "files": [
+        "spark-plugin-animated-headline-minerva-english-wide.png",
+        "spark-plugin-animated-headline-minerva-english-close-up.png"
+      ],
+      "alt": "Spark Plugin animated headline treatment on the Minerva Education Consultancy Squarespace homepage"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-08-21",
+  "captureStatus": "pending",
+  "verifiedExamples": [
+    {
+      "sourceUrl": "https://www.2squarefilms.com/fr/",
+      "customerDomain": "2squarefilms.com",
+      "feature": "Cookie consent banner and preference centre",
+      "language": "French",
+      "visibleText": [
+        "Nous respectons votre vie privée.",
+        "Personnaliser",
+        "Tout rejeter",
+        "Accepter tout"
+      ]
+    }
+  ],
+  "assets": []
+}

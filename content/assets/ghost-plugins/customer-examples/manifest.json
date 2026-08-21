@@ -1,0 +1,18 @@
+{
+  "capturedAt": "2026-08-21",
+  "assets": [
+    {
+      "sourceUrl": "https://www.broodkast.video/ons-werk",
+      "customerDomain": "broodkast.video",
+      "feature": "Video pop-up",
+      "language": "Dutch",
+      "evidence": "The page loads Ghost Plugins' video-pop-up script and the captured gallery item opens the lightbox",
+      "files": [
+        "ghost-plugins-video-popup-trigger-broodkast-dutch-wide.png",
+        "ghost-plugins-video-popup-broodkast-dutch-wide.png",
+        "ghost-plugins-video-popup-broodkast-dutch-close-up.png"
+      ],
+      "alt": "Ghost Plugins video pop-up opened from Broodkast's Dutch portfolio gallery"
+    }
+  ]
+}

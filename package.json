@@ -20,6 +20,7 @@
     "clients:reprocess": "node customer-intelligence/reprocess.mjs",
     "clients:affiliate-opportunities": "node customer-intelligence/affiliate-opportunities.mjs",
     "clients:prepare-elfsight-assets": "node customer-intelligence/prepare-elfsight-article-assets.mjs",
+    "clients:prepare-saas-assets": "node customer-intelligence/prepare-saas-article-assets.mjs",
     "clients:serve": "node customer-intelligence/server.mjs"
   },
   "dependencies": {

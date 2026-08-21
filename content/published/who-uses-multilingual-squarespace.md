@@ -3,7 +3,10 @@ title: "Who Uses Multilingual Features on Squarespace? Data from 337 Customers"
 slug: who-uses-multilingual-squarespace
 excerpt: "An anonymised study of 337 Multilingualizer customers with active Squarespace sites, covering languages, countries, sectors, business models and current multilingual use."
 categoryIds: [7, 828]
-status: draft
+wpPostId: 45693
+status: published
+publishedDate: 2026-08-21
+publishedUrl: https://www.multilingualizer.com/who-uses-multilingual-squarespace/
 ---
 
 There is plenty of advice about making Squarespace multilingual. There is much less evidence about who actually does it.
@@ -155,6 +158,8 @@ The crawl also looked for customer-attributed third-party technology. These are 
 
 Elfsight is more concentrated on Squarespace: it appeared for 14 of the 337 customers with a reachable Squarespace site, or 4.2%.
 
+The [Squarespace widgets guide](/best-squarespace-widgets-multilingual-sites/) breaks that Elfsight evidence down by widget and includes public screenshots of reviews, chat, a number counter, Instagram and Tripadvisor implementations.
+
 These figures do not prove that every detected account is paid. They do show which products solve enough real problems to appear repeatedly on public customer sites.
 
 I am using those observations to build practical guides for the exact jobs people are doing, including Google Reviews, WhatsApp chat, number counters, multilingual HubSpot forms and multilingual cookie consent. A page titled “buy some plugins” would be useless. A tested guide to fixing a specific Squarespace problem can earn its place.
@@ -176,7 +181,7 @@ I will not publish claims such as “this increased sales” unless the business
 
 The typical multilingual Squarespace project in this data is not an enormous international catalogue. It is a two-language site run by an education provider, creative business, architect, hotel, retailer, event organiser or professional service.
 
-If you already have the translations and want to manage them in the Squarespace editor, [our very own Multilingualizer](/product/multilingualizer/) is a one-time purchase. It keeps you in control of the text and there are no monthly translation fees.
+> **Our very own [Multilingualizer](/product/multilingualizer/) is a [ssp_price product="4462"] one-time purchase.** It works directly inside the Squarespace editor, so you add and manage translations where you already edit your site instead of learning another interface. It does not machine-translate content, provide separate language URLs or translate protected checkout and account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
 If you need machine translation, separate indexable language URLs or translated protected checkout and account screens, start with the [Weglot and Squarespace decision guide](/is-weglot-worth-it-small-squarespace-site/).
 

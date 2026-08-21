@@ -6,7 +6,7 @@ contentType: case-study
 primaryQuery: multilingual Squarespace sports website examples
 searchIntent: inspiration and implementation research
 commercialRoute: multilingualizer
-status: briefed
+status: drafted
 ---
 
 # Problem
@@ -15,8 +15,9 @@ Sports organisations need to see how multilingual navigation works across events
 
 # Evidence
 
-- Current public candidates with Multilingualizer detected include Junglesport (English/French), Finlandia-hiihto (Finnish/English/Swedish/German/Estonian), Bortelid (Norwegian/English) and Physio Sport Chelsea (English/French).
-- Candidate facts come from the fresh August 2026 crawl and require page-by-page visual verification before naming them publicly.
+- Desktop verification completed for Junglesport (English/French), Finlandia-hiihto (Finnish/English/Swedish/German/Estonian) and Bortelid (Norwegian/English).
+- The checks covered each homepage and a conversion-relevant inner page: contact, registration or booking.
+- Findings include mixed English form labels on Junglesport's French contact page, an invalid `lang="undefined"` state on Bortelid's English pages and translated registration/pricing content on Finlandia-hiihto.
 
 # Existing URL decision
 
@@ -38,7 +39,8 @@ Sports organisations need to see how multilingual navigation works across events
 
 # Publication checks
 
-- [ ] Verify each named site and language on publication day
-- [ ] Confirm public Multilingualizer fingerprint
-- [ ] No revenue, satisfaction or purchaser claim
-- [ ] Offer a factual correction route
+- [x] Verify each named site and language on desktop
+- [x] Confirm public Multilingualizer fingerprint
+- [x] No revenue, satisfaction or purchaser claim
+- [x] Offer a factual correction route
+- [ ] Capture and verify original desktop and mobile screenshots

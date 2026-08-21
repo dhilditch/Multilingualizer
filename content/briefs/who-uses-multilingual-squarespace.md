@@ -6,7 +6,7 @@ contentType: article
 primaryQuery: who uses multilingual Squarespace websites
 searchIntent: informational research
 commercialRoute: multilingualizer
-status: briefed
+status: published
 ---
 
 # Problem

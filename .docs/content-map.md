@@ -30,6 +30,17 @@ All eight supporting articles below were published on 21 August 2026. Dave will 
 
 Each article has one primary intent, links towards the pricing calculator where relevant, and includes a factual Multilingualizer callout: a dynamically displayed one-time price, manual translations, same-page JavaScript, no separate language URLs and no protected checkout or account translation.
 
+## Customer-data and Squarespace enhancement cluster
+
+The first two customer-evidence articles were published on 21 August 2026. The aggregate study is the data hub. The Elfsight article is the first problem-led affiliate cornerstone and uses five verified public screenshots.
+
+| Article | WordPress ID | Primary intent |
+|---|---:|---|
+| Who Uses Multilingual Features on Squarespace? | 45693 | Understand the languages, countries, sectors and tools found across current customer sites |
+| Useful Squarespace Widgets for Multilingual Sites | 45694 | Choose and test review, chat, counter and social widgets on a multilingual Squarespace site |
+
+Elfsight links currently point to the official product documentation. Replace the appropriate commercial links only after the affiliate account, disclosure and outbound-click tracking are configured.
+
 ## Platform-expansion rule
 
 Add a platform only after four checks:
