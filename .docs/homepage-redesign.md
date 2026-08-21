@@ -16,14 +16,19 @@ The message applies to both current products. It does not promise lifetime updat
 
 ## Draft structure
 
-1. One clear hero explaining the two one-time products.
-2. Side-by-side Multilingualizer and Multicurrencyalizer choices with dynamic local prices.
-3. An honest Multilingualizer versus Weglot decision route.
-4. Direct routes to Squarespace guides, the Weglot pricing calculator and other website-builder guides.
-5. Customer research and two existing customer quotations.
-6. A final route to buy either product or use both together.
+The first redesign replaced the original visual composition with a new seven-row conversion layout. That version was rejected because it lost the character of the existing homepage.
 
-The draft uses a new seven-row Themify Builder layout. The current homepage remains unchanged until the replacement is explicitly approved.
+The current draft is an edited clone of the original nine-row Themify Builder layout. It preserves the original imagery, customer photograph, installation graphic, videos, alternating testimonial sections, country banner, colours and spacing. The copy and links were updated in place:
+
+1. The original three-column opening introduces Multilingualizer, the one-time-fee message and Multicurrencyalizer.
+2. Both product prices use the existing dynamic AJAX price shortcode.
+3. The customer photograph and quotation remain the main proof section.
+4. The installation and SEO section leads to the Multilingualizer product and Squarespace guides.
+5. The original testimonial presentation and customer quotations remain intact.
+6. The country banner leads into current platform guides and the Weglot calculator.
+7. The final call to action offers both one-time products.
+
+The current homepage remains unchanged until the replacement is explicitly approved.
 
 ## Live primary menu
 
@@ -48,4 +53,3 @@ The primary menu was simplified to five top-level routes:
 - Buy Multilingualizer
 
 Third-party affiliate products are not presented as Multilingualizer products. They are introduced inside problem-led guides or the comparison route when they solve the visitor's requirement.
-
