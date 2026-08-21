@@ -14,21 +14,13 @@
 
 The message applies to both current products. It does not promise lifetime updates or support.
 
-## Draft structure
+## Current state
 
-The first redesign replaced the original visual composition with a new seven-row conversion layout. That version was rejected because it lost the character of the existing homepage.
+The first redesign replaced the original visual composition with a new seven-row conversion layout. A second attempt modified a clone of the original nine-row builder layout. Both were rejected because they did not meet the required visual standard.
 
-The current draft is an edited clone of the original nine-row Themify Builder layout. It preserves the original imagery, customer photograph, installation graphic, videos, alternating testimonial sections, country banner, colours and spacing. The copy and links were updated in place:
+Draft `45712` was reset to an exact copy of the live homepage builder data. Its `_themify_builder_settings_json` value is byte-for-byte identical to live homepage `5899`. No redesign remains on the draft.
 
-1. The original three-column opening introduces Multilingualizer, the one-time-fee message and Multicurrencyalizer.
-2. Both product prices use the existing dynamic AJAX price shortcode.
-3. The customer photograph and quotation remain the main proof section.
-4. The installation and SEO section leads to the Multilingualizer product and Squarespace guides.
-5. The original testimonial presentation and customer quotations remain intact.
-6. The country banner leads into current platform guides and the Weglot calculator.
-7. The final call to action offers both one-time products.
-
-The current homepage remains unchanged until the replacement is explicitly approved.
+The next iteration must be designed for desktop and mobile deliberately. It must not depend on the original three-column opening simply stacking into oversized blocks on a narrow viewport. The current homepage remains unchanged until a replacement is explicitly approved.
 
 ## Live primary menu
 
