@@ -79,6 +79,16 @@ Use another route when:
 
 An Elfsight gallery can make sense for an external content source. Spark Plugin can make sense when several pre-built Squarespace enhancements are needed. Ghost's paid products make sense when one of them directly matches the required slideshow, video, product or gallery behaviour.
 
+## Why separate Ghost tutorials are more useful
+
+Broodkast provides another example of the same principle. Its Dutch portfolio page uses Ghost Plugins for a video pop-up opened from a gallery item.
+
+![Ghost Plugins video pop-up opened from Broodkast's Dutch portfolio gallery](../assets/ghost-plugins/customer-examples/annotated/ghost-plugins-video-popup-broodkast-dutch-wide.png)
+
+That belongs in a tutorial about opening portfolio videos in a lightbox. It is not evidence that every Squarespace site needs Ghost+, and it would not help somebody searching for a mobile grid-gallery fix.
+
+The implementation was publicly verified on 21 August 2026. The screenshot proves the visible video pop-up and Ghost script, not payment, satisfaction or conversion performance.
+
 ## Where Multilingualizer fits
 
 The gallery rule changes layout. It does not translate the page, captions or calls to action.
@@ -90,5 +100,6 @@ The gallery rule changes layout. It does not translate the page, captions or cal
 - [Ghost Plugins: one image per row on a mobile grid gallery](https://www.ghostplugins.com/freeplugins/1-image-per-row-on-mobile-grid-gallery)
 - [Ghost Plugins products](https://www.ghostplugins.com/products)
 - [Ghost Super Plugins](https://www.ghostplugins.com/super-plugins)
+- [Public Ghost video pop-up example on Broodkast](https://www.broodkast.video/ons-werk)
 
 This is an editorial draft. The current Ghost snippet needs to be reproduced on a controlled Squarespace 7.1 Simple and Strips gallery, with original desktop and mobile screenshots, before publication. Compatibility and affiliate terms must be checked again on publication day.

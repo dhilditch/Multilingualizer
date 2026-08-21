@@ -28,6 +28,20 @@ That model has two practical advantages over collecting unrelated snippets:
 
 The trade-off is equally clear. You are adding a general enhancement product even when your requirement might be one line of CSS.
 
+## What current customer sites use Spark for
+
+The public examples I found support the problem-led approach. They are not generic “make Squarespace better” installations. Each one applies a visible treatment to a specific part of the page.
+
+![Spark Plugin announcement bar and navigation treatment on German Physiks](../assets/spark-plugin/customer-examples/annotated/spark-plugin-announcement-bar-german-physiks-english-wide.png)
+
+German Physiks uses Spark code for its announcement and navigation treatment. That is a recurring site-wide job, so maintaining it through a supported feature library has a clearer case than adding an isolated page effect.
+
+![Spark Plugin animated headline treatment on Minerva Education Consultancy](../assets/spark-plugin/customer-examples/annotated/spark-plugin-animated-headline-minerva-english-wide.png)
+
+Minerva Education Consultancy uses a Spark animated headline treatment. The underlying message still needs to be readable before and after the animation, and each language needs enough room for its natural word length.
+
+These screenshots show publicly visible implementations checked on 21 August 2026. They are implementation examples, not endorsements or performance claims.
+
 ## The five Spark jobs I would inspect first
 
 ### 1. Add an animated number counter
@@ -112,5 +126,6 @@ Use Multilingualizer for the page languages, then use Spark only for the specifi
 - [How Spark Plugin works](https://www.sparkplugin.com/how-it-works)
 - [Spark animated number counter guide](https://www.sparkplugin.com/blog/animated-number-counter-squarespace)
 - [Spark Squarespace gallery guide](https://www.sparkplugin.com/blog/squarespace-gallery)
+- Public examples: [German Physiks](https://germanphysiks.squarespace.com/) and [Minerva Education Consultancy](https://www.minervaedu.com/)
 
 This is an editorial draft. The five named features need a controlled Squarespace 7.1 test and original screenshots before publication. Feature availability, plan requirements and affiliate terms must also be checked again on publication day.

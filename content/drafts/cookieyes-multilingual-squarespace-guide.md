@@ -68,6 +68,10 @@ Automatic or supplied translations are a starting point. Review:
 
 The translated version should preserve the meaning and the choices, not merely fit the same number of characters.
 
+One current public example is 2 Square Films. Its French page displayed a CookieYes banner headed `Nous respectons votre vie privée.` with `Personnaliser`, `Tout rejeter` and `Accepter tout` controls when checked on 21 August 2026. The preference centre was also present.
+
+That is the level of verification required. Do not count a CookieYes script as proof of a multilingual banner until the actual controls and preference centre have been opened in the target language.
+
 ## Test consent across multilingual pages
 
 Use a fresh browser profile for each full run.
@@ -118,5 +122,6 @@ The two can work together, but their language states need to be tested rather th
 - [CookieYes multilingual website guide](https://www.cookieyes.com/documentation/cookieyes-cookie-banner-for-multilingual-websites/)
 - [Add a cookie policy to Squarespace](https://www.cookieyes.com/documentation/how-to-add-a-cookie-policy-to-squarespace/)
 - [Install CookieYes on a website](https://www.cookieyes.com/documentation/add-cookie-banner-to-website/)
+- [Public French CookieYes example on 2 Square Films](https://www.2squarefilms.com/fr/)
 
 This is an editorial draft. Script ordering, the document-language bridge and consent behaviour need to be reproduced on a controlled Squarespace site before publication. CookieYes plan requirements and affiliate terms must be checked again on publication day.

@@ -63,6 +63,16 @@ Check the current subscription requirement before designing around it. Automatic
 
 Whichever route you use, pass the page language into a dedicated HubSpot property. Do not try to reconstruct it later from the visitor's country.
 
+## A live English and Dutch form example
+
+Epihunter uses a HubSpot newsletter and lead-qualification form on its public site.
+
+![English HubSpot newsletter and lead-qualification form on Epihunter](../assets/hubspot/customer-examples/annotated/hubspot-newsletter-form-epihunter-english-wide.png)
+
+The English form asks for an email address, country and reason for interest. The separate Dutch page has a corresponding Dutch form with labels including `Land`, `Waarom ben je geïnteresseerd?` and `Blijf op de hoogte`.
+
+This is the deliberate version of a multilingual embed: the page route and form language agree. It was publicly verified on 21 August 2026. The screenshot proves the visible implementation, not the business's HubSpot subscription, lead volume or results.
+
 ## Embed the form in Squarespace
 
 The normal route is to copy HubSpot's embed code into a Squarespace Code Block on the target page.
@@ -131,5 +141,6 @@ HubSpot manages the contact and sales process. It does not translate the surroun
 - [Create and edit HubSpot forms](https://knowledge.hubspot.com/forms/create-and-edit-forms)
 - [Set up a HubSpot form on an external site](https://knowledge.hubspot.com/forms/set-up-and-style-your-form-on-an-external-site)
 - [Troubleshoot externally embedded HubSpot forms](https://knowledge.hubspot.com/forms/why-doesn-t-my-externally-embedded-hubspot-form-work)
+- [Public HubSpot form example on Epihunter](https://www.epihunter.com/)
 
 This is an editorial draft. The current embed, consent behaviour and internal-navigation test need to be reproduced on a controlled Squarespace site before publication. HubSpot subscription requirements and affiliate terms must be checked again on publication day.
