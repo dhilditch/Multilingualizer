@@ -5,7 +5,7 @@ excerpt: "A problem-led look at Spark Plugin for Squarespace, including counters
 categoryIds: [7, 828]
 status: draft
 affiliateProgramme: spark-plugin
-affiliateLinkStatus: pending
+affiliateLinkStatus: link-configured-tracking-pending
 verificationStatus: controlled-test-required
 ---
 
@@ -15,7 +15,7 @@ Start with the thing you cannot currently do. If Spark solves two or three recur
 
 I found Spark publicly detectable on four of the 337 Multilingualizer customers with a reachable Squarespace site, or 1.2%. That is not an endorsement score. It is evidence that some multilingual Squarespace owners use it in live builds.
 
-**Affiliate disclosure:** I intend to use Spark affiliate links in this guide after the account and click tracking are configured. If you buy through one, I may earn a commission. You pay the same price either way.
+**Affiliate disclosure:** this guide contains Spark Plugin affiliate links. If you buy through one, I may earn a commission. You pay the same price either way.
 
 ## What Spark changes
 
@@ -111,6 +111,8 @@ For every matching feature, record:
 - whether it affects translated text or only presentation
 
 If only one small item remains on the list, use the narrowest reliable solution. If several items are covered and you would otherwise maintain several unrelated snippets, Spark has a stronger case.
+
+<a href="https://sparkplugin.com/features?via=david-hilditch" rel="sponsored nofollow">Check the current Spark Plugin feature library</a> against your own list before buying.
 
 ## Where Multilingualizer fits
 

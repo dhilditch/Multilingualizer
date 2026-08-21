@@ -5,7 +5,7 @@ excerpt: "How to configure and test a multilingual CookieYes banner on Squarespa
 categoryIds: [7, 828]
 status: draft
 affiliateProgramme: cookieyes
-affiliateLinkStatus: pending
+affiliateLinkStatus: link-configured-tracking-pending
 verificationStatus: squarespace-test-required
 ---
 
@@ -13,7 +13,7 @@ A multilingual site should not leave its consent controls in one language. It sh
 
 CookieYes was publicly detectable for eight of the 674 Multilingualizer customers with a reachable site, or 1.2%. That is a small group, but consent software is relevant only where the site's scripts and obligations create the requirement. It should not be promoted to everybody through vague warnings.
 
-**Affiliate disclosure:** I intend to use CookieYes affiliate links in this guide after the account and click tracking are configured. If you buy through one, I may earn a commission. You pay the same price either way.
+**Affiliate disclosure:** this guide contains CookieYes affiliate links. If you buy through one, I may earn a commission. You pay the same price either way.
 
 This is technical configuration guidance, not legal advice. Identify the rules that apply to the business before deciding which scripts need consent and what the banner must say.
 
@@ -108,6 +108,8 @@ Use the least complicated system that meets the site's actual requirements.
 The native Squarespace banner may be enough for a simple site with a modest script setup. CookieYes becomes worth inspecting when the business needs capabilities such as a structured cookie inventory, several banner languages, categorised controls, consent-mode integration or central management across more than one site.
 
 Recheck current features and plan requirements against the official product before deciding.
+
+<a href="https://www.cookieyes.com/plans/?ref=zta0n2i" rel="sponsored nofollow">Compare the current CookieYes plans</a> against the scripts, languages and consent controls the site actually needs.
 
 ## Where Multilingualizer fits
 

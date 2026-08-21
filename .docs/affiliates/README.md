@@ -8,9 +8,13 @@ customer names, domains, email addresses or other private customer data.
 
 ## Files
 
+- [`../../config/affiliate-links.md`](../../config/affiliate-links.md): approved public
+  tracking URLs and deep-link rules. It must never contain login credentials.
 - `join-queue.md`: programmes worth applying to, in priority order.
 - `programme-register.md`: the disposition of every named technology in the current
   customer-intelligence inventory.
+- `follow-ups.md`: account, approval, controlled-test and tracking-domain jobs that need
+  Dave's input or external completion.
 - `opportunities/`: generated aggregate customer segments and recommendation angles,
   one file per cash-paying affiliate or partner opportunity.
 - `opportunities/priority-findings.md`: ranked peer opportunities and the strongest
