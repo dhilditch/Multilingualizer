@@ -227,6 +227,21 @@ Do not assume the whole journey is covered. Squarespace lists Member Sites and c
 
 At the time of checking, Squarespace's help page and Weglot's own pricing page did not state the same duration. Treat Weglot's live signup and pricing terms as the current offer rather than relying on either number in an older guide.
 
+## Squarespace and Weglot guide library
+
+Use the calculator as the starting point, then open the guide for the part of the implementation you are checking:
+
+- [Set up Weglot language subdomains on Squarespace](/weglot-language-subdomains-squarespace/)
+- [Check what Weglot does not translate on Squarespace](/what-weglot-does-not-translate-squarespace/)
+- [Configure Squarespace and Weglot SEO](/squarespace-weglot-seo/)
+- [Understand how Weglot counts words](/how-weglot-counts-words-squarespace/)
+- [Test checkout, forms and customer emails](/weglot-squarespace-checkout-forms-emails/)
+- [Run the Squarespace multilingual launch checklist](/squarespace-multilingual-launch-checklist/)
+- [Decide whether Weglot is worth it for a small site](/is-weglot-worth-it-small-squarespace-site/)
+- [Plan a multilingual Squarespace ecommerce site](/squarespace-multilingual-ecommerce/)
+
+You can also [browse the complete Squarespace multilingual guide hub](/make-squarespace-multilingual/), see [who actually uses multilingual Squarespace sites](/who-uses-multilingual-squarespace/) or inspect [useful Squarespace widgets found on customer sites](/best-squarespace-widgets-multilingual-sites/).
+
 ## Sources and last check
 
 Product behaviour and prices were checked on 20 August 2026 against:

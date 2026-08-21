@@ -122,6 +122,13 @@ If most answers are yes, Weglot is probably worth it. If most are no, compare th
 
 If Weglot fits, [check its current plans](https://www.weglot.com/pricing?fp_ref=multilingualizer) after measuring the site.
 
+## Related Squarespace guides
+
+- [Weglot pricing calculator for Squarespace](/weglot-pricing-calculator-squarespace/)
+- [Understand how Weglot counts words](/how-weglot-counts-words-squarespace/)
+- [Compare Weglot with Multilingualizer](/weglot-vs-the-multilingualizer-for-squarespace/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Sources checked 21 August 2026
 
 - [Weglot: free plan and trial](https://support.weglot.com/article/107-weglot-free)

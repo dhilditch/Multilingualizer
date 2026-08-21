@@ -30,6 +30,19 @@ All eight supporting articles below were published on 21 August 2026. Dave will 
 
 Each article has one primary intent, links towards the pricing calculator where relevant, and includes a factual Multilingualizer callout: a dynamically displayed one-time price, manual translations, same-page JavaScript, no separate language URLs and no protected checkout or account translation.
 
+### Live internal-link architecture
+
+The live cluster was completed on 21 August 2026:
+
+- `/make-squarespace-multilingual/` is the top-level Squarespace guide hub and is exposed in the primary navigation as **Squarespace Guides**, below Multilingualizer.
+- `/weglot-pricing-calculator-squarespace/` is the Weglot cornerstone and contains the complete directory of the eight Weglot supporting guides, plus links to the customer study and widget guide.
+- Each Weglot supporting guide links back to the calculator where it helps the task, to the top-level hub, and to three closely related supporting guides.
+- The customer study and widget guide link to each other, the Weglot decision path and the top-level hub.
+- The legacy Weglot comparison page links to the calculator, small-site decision guide, ecommerce guide, hub and Multilingualizer product.
+- The Multilingualizer product page links to the hub, calculator, small-site decision guide, ecommerce guide and customer study.
+
+This creates two deliberate entry points rather than competing pages: the broad Squarespace hub for visitors choosing an approach, and the calculator cornerstone for visitors already considering Weglot.
+
 ## Customer-data and Squarespace enhancement cluster
 
 The first two customer-evidence articles were published on 21 August 2026. The aggregate study is the data hub. The Elfsight article is the first problem-led affiliate cornerstone and uses five verified public screenshots.

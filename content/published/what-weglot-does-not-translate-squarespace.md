@@ -108,6 +108,13 @@ Read [Does Weglot translate Squarespace checkout, forms and emails?](/weglot-squ
 
 If the coverage works for your site, [check Weglot's current plans](https://www.weglot.com/pricing?fp_ref=multilingualizer).
 
+## Related Squarespace guides
+
+- [Test checkout, forms and customer emails](/weglot-squarespace-checkout-forms-emails/)
+- [Plan a multilingual Squarespace ecommerce site](/squarespace-multilingual-ecommerce/)
+- [Run the Squarespace multilingual launch checklist](/squarespace-multilingual-launch-checklist/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Sources checked 21 August 2026
 
 - [Squarespace: creating a multilingual site with Weglot](https://support.squarespace.com/hc/en-us/articles/205809778-Creating-a-multilingual-site-with-Weglot)

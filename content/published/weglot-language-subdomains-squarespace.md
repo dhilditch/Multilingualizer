@@ -124,6 +124,13 @@ Use the [Weglot pricing calculator for Squarespace](/weglot-pricing-calculator-s
 
 If Weglot fits, [check its current plans](https://www.weglot.com/pricing?fp_ref=multilingualizer) after confirming your word count and destination-language total.
 
+## Related Squarespace guides
+
+- [Squarespace Weglot SEO guide](/squarespace-weglot-seo/)
+- [Squarespace multilingual launch checklist](/squarespace-multilingual-launch-checklist/)
+- [Weglot pricing calculator for Squarespace](/weglot-pricing-calculator-squarespace/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Sources checked 21 August 2026
 
 - [Squarespace: creating a multilingual site with Weglot](https://support.squarespace.com/hc/en-us/articles/205809778-Creating-a-multilingual-site-with-Weglot)

@@ -169,6 +169,13 @@ See the [Squarespace Weglot SEO guide](/squarespace-weglot-seo/) for the checks 
 
 > **Our very own [Multilingualizer](/product/multilingualizer/) is a [ssp_price product="4462"] one-time purchase.** It works directly inside the Squarespace editor, so you add and manage translations where you already edit your site instead of learning Weglot's interface. It does not machine-translate content, provide Weglot's separate language URLs or translate protected checkout/account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
+## Related Squarespace guides
+
+- [Set up Weglot language subdomains](/weglot-language-subdomains-squarespace/)
+- [Configure Squarespace and Weglot SEO](/squarespace-weglot-seo/)
+- [Test checkout, forms and customer emails](/weglot-squarespace-checkout-forms-emails/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Sources checked 21 August 2026
 
 - [Squarespace: creating a multilingual site with Weglot](https://support.squarespace.com/hc/en-us/articles/205809778-Creating-a-multilingual-site-with-Weglot)

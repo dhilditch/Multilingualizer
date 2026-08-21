@@ -131,6 +131,13 @@ Use the [Squarespace multilingual ecommerce guide](/squarespace-multilingual-eco
 
 Estimate the translated content with the [Weglot pricing calculator](/weglot-pricing-calculator-squarespace/). If the full journey passes, [check Weglot's current plans](https://www.weglot.com/pricing?fp_ref=multilingualizer).
 
+## Related Squarespace guides
+
+- [Check what Weglot does not translate](/what-weglot-does-not-translate-squarespace/)
+- [Plan a multilingual Squarespace ecommerce site](/squarespace-multilingual-ecommerce/)
+- [Run the Squarespace multilingual launch checklist](/squarespace-multilingual-launch-checklist/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Sources checked 21 August 2026
 
 - [Squarespace: creating a multilingual site with Weglot](https://support.squarespace.com/hc/en-us/articles/205809778-Creating-a-multilingual-site-with-Weglot)

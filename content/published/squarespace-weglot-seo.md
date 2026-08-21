@@ -151,6 +151,13 @@ Estimate the content with the [Weglot pricing calculator for Squarespace](/weglo
 
 If the URL and workflow model fits, [check Weglot's current plans](https://www.weglot.com/pricing?fp_ref=multilingualizer).
 
+## Related Squarespace guides
+
+- [Set up Weglot language subdomains on Squarespace](/weglot-language-subdomains-squarespace/)
+- [Run the Squarespace multilingual launch checklist](/squarespace-multilingual-launch-checklist/)
+- [Plan a multilingual Squarespace ecommerce site](/squarespace-multilingual-ecommerce/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Sources checked 21 August 2026
 
 - [Google: managing multilingual and multi-regional sites](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites)

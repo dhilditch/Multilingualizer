@@ -207,6 +207,13 @@ Choose a manual route when the catalogue is small, changes rarely and the owner 
 
 If Weglot fits, [check its current plans](https://www.weglot.com/pricing?fp_ref=multilingualizer) after counting the whole catalogue and testing the full order journey.
 
+## Related Squarespace guides
+
+- [Test checkout, forms and customer emails](/weglot-squarespace-checkout-forms-emails/)
+- [Check what Weglot does not translate](/what-weglot-does-not-translate-squarespace/)
+- [Configure Squarespace and Weglot SEO](/squarespace-weglot-seo/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Sources checked 21 August 2026
 
 - [Squarespace: creating a multilingual site with Weglot](https://support.squarespace.com/hc/en-us/articles/205809778-Creating-a-multilingual-site-with-Weglot)

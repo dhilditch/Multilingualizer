@@ -187,6 +187,13 @@ If you need machine translation, separate indexable language URLs or translated 
 
 The next articles in this study will show public examples sector by sector, beginning with sports, fashion, travel and education sites.
 
+## Related Squarespace guides
+
+- [Useful Squarespace widgets found on multilingual customer sites](/best-squarespace-widgets-multilingual-sites/)
+- [Weglot pricing calculator and pre-purchase guide](/weglot-pricing-calculator-squarespace/)
+- [Is Weglot worth it for a small Squarespace site?](/is-weglot-worth-it-small-squarespace-site/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Method note
 
 The aggregate was generated from the local customer-intelligence database on 21 August 2026. Counts use unique customers unless a row explicitly says sites or installations. Public-site technology evidence is attributed to the customer only when it appears on the customer's current business site rather than a parking or redirect provider.

@@ -166,6 +166,13 @@ Elfsight handles the widget. It does not replace the language system for the sur
 
 Use the page language system for headings, explanations and calls to action. Then configure and test the widget's own language behaviour separately.
 
+## Related Squarespace guides
+
+- [Who uses multilingual features on Squarespace?](/who-uses-multilingual-squarespace/)
+- [Weglot pricing calculator and pre-purchase guide](/weglot-pricing-calculator-squarespace/)
+- [Is Weglot worth it for a small Squarespace site?](/is-weglot-worth-it-small-squarespace-site/)
+- [Browse all Squarespace multilingual guides](/make-squarespace-multilingual/)
+
 ## Sources and method
 
 - [Elfsight Google Reviews for Squarespace](https://elfsight.com/google-reviews-widget/squarespace/)
