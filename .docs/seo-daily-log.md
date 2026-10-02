@@ -71,3 +71,42 @@ Status: deployed to live. Final verification and repository record below.
 - Daily heartbeat is active at 10:00 Europe/Athens. The computer must remain on with Codex running. It will select three justified actions, preserve experiments for 28 days and report if fewer worthwhile actions exist.
 - Final live check passed: 12 public pages, 25 internal routes, correct canonicals, one H1 each, rendered calculator and dynamic pricing, named CTA attributes, and exact equality of Themify structure after excluding edited text content.
 - Repository record: task changes committed and pushed to `main` in `dhilditch/Multilingualizer` with message `Refresh priority SEO pages and schedule daily improvement loop`. Raw reports, screenshots and private backups remain uncommitted.
+
+## 2 October 2026, 10:00 Europe/Athens: scheduled review
+
+Fresh GSC and GA4 collection completed. The available reporting window remains 2–29 September, with 26 GSC clicks and 2,599 impressions. GA4 shows 220 sessions, 19 engaged sessions and zero recorded purchases. None of this covers today's edits. The four query-derived opportunities overlap the initial improvements, so those experiments remain unchanged until the 30 October review. Three untouched pages have enough existing visibility or verified defects to justify the following actions.
+
+### 1. Correct the beginner bilingual guide
+
+- Query/intent: how to make a website bilingual; a practical setup and workflow choice. Page-level evidence is 34 impressions, zero clicks, position 8.76. Query-level counts are suppressed or absent, so this is a page-based prioritisation, not a claimed observed query.
+- Before: no meta description; $3.99/month pricing and a free-trial CTA; invented ordinary-text `[en]` wrappers; unsupported universal installation and legal/SEO claims.
+- After: five-step guide covering platform checks, workflow, content review, correct Multilingualizer punctuation, language switching and journey testing. Replaced obsolete pricing with `[ssp_price product="4462"]` and a tracked one-time purchase callout. Added useful links to the existing comparison, Squarespace hub, calculator, SEO guide, checklist and support instructions.
+- Sources checked live: on-page translation and Squarespace installation documentation; Google's multilingual-site documentation. No claimed customer percentages, search guarantee or universal platform compatibility.
+- Product fit/CTA: manual translations in the Squarespace editor; `multilingualizer_product_click` to product 4462. Other platform users go to the builder-specific choice guide.
+- Internal competition: retains broad beginner intent rather than copying Squarespace setup or Weglot pricing intent. Existing URL retained: https://www.multilingualizer.com/how-to-make-website-bilingual-beginners-guide/.
+- Success measures: page CTR/clicks and progression to hub, calculator or product, checked 9 October, 30 October and 31 December. No redirects or deletions.
+
+### 2. Correct Zoho's mistaken search metadata
+
+- Query/intent: Zoho Sites multilingual setup. Page has 15 impressions, zero clicks, position 15.27; no claim of observed query-level volume.
+- Verified public defect: `/make-zoho-sites-multilingual/` rendered the title `Make Squarespace Multilingual - Multilingualizer` and a Squarespace description.
+- Changed only Yoast title and description to identify Zoho and the content actually present: installation instructions, translated text and language markers. No new compatibility, timing or platform feature claims. Existing Themify content/layout remains byte-for-byte unchanged.
+- Product fit/CTA: existing setup/product route retained. No new competing URL or promise. Measure page CTR and clicks at the same 7/28/90-day checkpoints.
+- URL: https://www.multilingualizer.com/make-zoho-sites-multilingual/.
+
+### 3. Make the product search snippet match the offer
+
+- Query/intent: Multilingualizer product/manual Squarespace translation purchase. Product page has 50 impressions, zero clicks, position 14.32; query-level volume not asserted.
+- Before: generic `The right solution for your website` title and a description promising discovery in any language.
+- After: title `Multilingualizer: pay once, use forever | Squarespace translations` and a description of editor-native translations, one-time purchase and no monthly/yearly fees. Does not hard-code a visitor currency.
+- Source: existing product and configuration, verified read-only. No product price, licence, checkout, reviews, content or Themify settings changed.
+- Internal competition: product purchase intent remains separate from the Squarespace hub, comparison and beginner guide. Existing purchase CTA remains unchanged. Measure product-page organic CTR and purchasing progression at 7/28/90 days.
+- URL: https://www.multilingualizer.com/product/multilingualizer/.
+
+### Run record
+
+- Originals and readback snapshots saved under gitignored `data/seo-backups/2026-10-02-daily/`. The dated script defaults to verification; `--apply` performs the authorised changes.
+- Google Analytics Admin API enablement is still waiting on Dave. Tracking works; no extra permissions or credentials were changed during this run.
+- Remaining legacy product-body claims about search, competitors, universal compatibility and checkout require a separate sourced review. Today's product edit is metadata-only and does not validate those claims. Zoho's missing H1 is also left for a separate builder-text edit rather than changing its layout during this snippet correction.
+- Final verification passed for all three public canonical pages and 13 internal links. Exact title/description readback, rendered tracked CTA and AJAX price, unchanged non-SEO metadata and metadata-only page bodies checked. Browser review and screenshot confirm the beginner guide's published layout. `npm run check` passed all 16 tests; `git diff --check` passed.
+- Task changes committed and pushed to `main` in `dhilditch/Multilingualizer` with message `Correct beginner guide and targeted search snippets`. Private analytics and snapshots remain uncommitted. No background jobs left running.
