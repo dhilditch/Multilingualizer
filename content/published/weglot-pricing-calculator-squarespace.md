@@ -1,17 +1,17 @@
 ---
-title: "Weglot Pricing for Squarespace: Calculator and 12 Things to Check First"
+title: "Weglot Pricing Calculator: Plans, Costs and Squarespace Checks"
 slug: weglot-pricing-calculator-squarespace
-excerpt: "Estimate which Weglot plan your Squarespace site needs, then check the costs, limitations, subdomains and untranslated content before signing up."
+excerpt: "Calculate your likely Weglot plan from words and languages. Compare monthly and annual costs, scan your homepage, and check Squarespace limitations before buying."
 status: published
 publishedDate: 2026-08-20
 publishedUrl: https://www.multilingualizer.com/weglot-pricing-calculator-squarespace/
 ---
 
-If you are trying to price Weglot for a Squarespace site, the monthly figure is not the difficult part. The difficult part is working out how many translated words you will use.
+Weglot's paid plans start at €15 per month or €150 per year for 10,000 translated words and one destination language. The free plan covers up to 2,000 translated words in one language. Your likely plan depends on both your word count and the number of languages you want to add.
 
-A ten-page site can be cheap or surprisingly expensive. It depends on how much text is on those pages, how many destination languages you need, and whether you have product descriptions, blog archives and SEO metadata that were easy to forget.
+Use the calculator to enter a word count, paste text from several pages or scan your public homepage. Compare monthly and annual billing. After a homepage scan, you can request an emailed report covering up to ten public pages.
 
-Use the calculator first. Then work through the checks below before choosing a plan.
+The plan estimate can help you budget for a website built on another platform too. The implementation checks below are specifically for Squarespace. For another builder, start with our [multilingual website-builder comparison](/website-builders-multilingual-support-comparison/).
 
 **Affiliate disclosure:** the Weglot links on this page are affiliate links. If you buy through one, I may earn a commission. You pay the same price either way.
 
@@ -33,7 +33,7 @@ Weglot also counts translatable SEO content such as page titles, meta descriptio
 
 ## Current published Weglot plan limits
 
-These were checked against the [official Weglot pricing page](https://www.weglot.com/pricing) on 20 August 2026. Weglot charges standard plans in euros and states that VAT is excluded. Recheck the live price before buying.
+The prices and limits below were checked against the [official Weglot pricing page](https://www.weglot.com/pricing) on 2 October 2026. Weglot charges standard plans in euros and states that VAT is excluded. Recheck the live price before buying.
 
 | Plan | Translated words | Translated languages | Monthly | Annual |
 |---|---:|---:|---:|---:|
@@ -188,6 +188,12 @@ Weglot is a sensible fit when the site owner values a managed translation workfl
 A manual approach can make more sense for a very small site, a site with one carefully maintained translation, or an owner who wants direct control over every translated page and cost. Squarespace's own page duplication approach and tools such as Multilingualizer come with different maintenance and compatibility trade-offs.
 
 The useful question is not “Which tool has the longest feature list?” It is “Which workflow can this business maintain after launch?”
+
+## Prefer a one-time purchase?
+
+Our very own [Multilingualizer](/product/multilingualizer/) lets you write and edit your translated text directly inside the Squarespace editor. It costs [ssp_price product="4462"] as a one-time purchase. Pay once, use forever. No monthly or yearly fees, and no separate translation interface to learn.
+
+It does not machine-translate content, provide Weglot's separate language URLs or translate protected checkout/account screens, but it does put you firmly in control of your own translated text and there will be no monthly fees to pay ever.
 
 ## A practical decision sequence
 

@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import path from 'node:path';
 import { searchConsoleClient } from './lib/google.mjs';
-import { isoDate, readSiteConfig, reportingPeriods, requiredEnv, root, toCsv, writeJson, writeText } from './lib/common.mjs';
+import { isoDate, readSiteConfig, reportingPeriods, requiredEnv, root, searchTotals, toCsv, writeJson, writeText } from './lib/common.mjs';
 
 requiredEnv(['GOOGLE_APPLICATION_CREDENTIALS']);
 const config = await readSiteConfig();
@@ -81,10 +81,8 @@ const columns = ['types', 'query', 'page', 'clicks', 'impressions', 'ctr', 'posi
 const csvPath = `reports/generated/gsc-opportunities-${stamp}.csv`;
 await writeText(csvPath, toCsv(opportunities, columns));
 
-const currentClicks = output.current.queries.reduce((sum, row) => sum + row.clicks, 0);
-const currentImpressions = output.current.queries.reduce((sum, row) => sum + row.impressions, 0);
-const previousClicks = output.previous.queries.reduce((sum, row) => sum + row.clicks, 0);
-const previousImpressions = output.previous.queries.reduce((sum, row) => sum + row.impressions, 0);
+const { clicks: currentClicks, impressions: currentImpressions } = searchTotals(output.current);
+const { clicks: previousClicks, impressions: previousImpressions } = searchTotals(output.previous);
 const summaryPath = `reports/generated/gsc-summary-${stamp}.md`;
 await writeText(summaryPath, `# Search Console summary - ${stamp}\n\nProperty: \`${siteUrl}\`\n\n| Metric | ${periods.current.startDate} to ${periods.current.endDate} | Previous 28 days | Change |\n|---|---:|---:|---:|\n| Clicks | ${currentClicks} | ${previousClicks} | ${currentClicks - previousClicks} |\n| Impressions | ${currentImpressions} | ${previousImpressions} | ${currentImpressions - previousImpressions} |\n\nDerived opportunities: ${opportunities.length}\n\nSee \`${path.relative(root, csvPath)}\`.\n`);
 

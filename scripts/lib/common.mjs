@@ -58,3 +58,11 @@ export function requiredEnv(names) {
     throw new Error(`Missing environment variable${missing.length === 1 ? '' : 's'}: ${missing.join(', ')}`);
   }
 }
+
+export function searchTotals(report) {
+  // Query rows omit anonymised searches. Date rows retain the property totals.
+  return report.dates.reduce((total, row) => ({
+    clicks: total.clicks + row.clicks,
+    impressions: total.impressions + row.impressions
+  }), { clicks: 0, impressions: 0 });
+}
