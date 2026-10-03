@@ -110,3 +110,46 @@ Fresh GSC and GA4 collection completed. The available reporting window remains 2
 - Remaining legacy product-body claims about search, competitors, universal compatibility and checkout require a separate sourced review. Today's product edit is metadata-only and does not validate those claims. Zoho's missing H1 is also left for a separate builder-text edit rather than changing its layout during this snippet correction.
 - Final verification passed for all three public canonical pages and 13 internal links. Exact title/description readback, rendered tracked CTA and AJAX price, unchanged non-SEO metadata and metadata-only page bodies checked. Browser review and screenshot confirm the beginner guide's published layout. `npm run check` passed all 16 tests; `git diff --check` passed.
 - Task changes committed and pushed to `main` in `dhilditch/Multilingualizer` with message `Correct beginner guide and targeted search snippets`. Private analytics and snapshots remain uncommitted. No background jobs left running.
+
+## 3 October 2026, 10:00 Europe/Athens: scheduled review
+
+Collected fresh GSC/GA4. Date-dimension GSC totals for 3–30 September: 26 clicks and 2,478 impressions, compared with 13 clicks and 1,510 impressions in the preceding 28 days. GA4: 225 sessions, 21 engaged sessions and zero purchases. These windows predate the October interventions, so no gain is attributed to them. Yesterday's experiments remain untouched until their 28-day review on 30 October.
+
+### 1. Correct Webflow pricing and comparison content
+
+- Target intent: Webflow Localization pricing and lower-cost workflows. Page evidence: 53 impressions, zero clicks, position 8.55. Query-level volume isn't asserted.
+- Reproduced publicly: title and text treated $29 as the only native tier; article offered Multilingualizer at $3.99/month with a free trial, invented language-tag syntax, an automatic selector and untested universal installation promises.
+- Existing post 44675 refreshed with Essential/Advanced rates, locale-count arithmetic, native/manual/third-party workflow checks, the documented Ecommerce limitation, search-URL distinctions and dynamic one-time Multilingualizer pricing. No claim of a new Webflow compatibility test.
+- Sources checked 3 October: Webflow pricing and Localize overview; Google multilingual URL guidance. Published rates are described as displayed monthly equivalents; the article tells readers to confirm billing commitment and complete Site plan charges instead of promising a particular checkout schedule.
+- Fit/CTA: owned-product click for manually maintained translations; calculator for a managed-service cost estimate, explicitly separating its Squarespace instructions from a Webflow setup. Links to the existing builder comparison and Squarespace hub.
+- Internal competitors: `/webflow-multilingual-cheap-alternative/` and `/multilingualizer-vs-webflow-localization/` remain unchanged pending consolidation authority. No new URL, redirect or deletion.
+- URL: https://www.multilingualizer.com/webflow-localization-too-expensive-alternative/.
+- Measure page clicks/CTR and progression to product/calculator on 10 October, 31 October and 1 January 2027.
+
+### 2. Correct the Weebly setup guide
+
+- Target intent: Weebly multilingual setup. Page evidence: 75 impressions, zero clicks, position 9.32. Query-level volume isn't asserted.
+- Reproduced publicly: obsolete monthly/free-trial offer, invented `ml-en`/`ml-es` authoring classes and an automatic-selector claim. Embed Code was presented as sufficient for the site-wide installation.
+- Existing page 44639 refreshed around the documented Settings/SEO/Header Code route, punctuation markers, separately configured selector, managed Weglot route, language-URL requirements and commercial-journey tests. One-time price uses `[ssp_price product="4462"]`; product link carries `multilingualizer_product_click`.
+- Sources: live Multilingualizer Weebly installation, on-page text and selector guides; official Weglot Weebly integration; Google multilingual URL guidance. Weebly's own multilingual help URL returned no readable body, so no claim about the absence of native functionality relies on it. Removed the old blanket feature-absence claim.
+- Fit/CTA: manual editorial control with Multilingualizer, or the calculator and vendor instructions for managed translation. No new template or checkout compatibility claims.
+- Internal competition: installation KB remains a focused reference; this existing page remains the workflow chooser. Builder comparison and beginner guide provide contextual routes. No duplicate URL created.
+- URL: https://www.multilingualizer.com/weebly-multilingual-website/.
+- Measure clicks/CTR and product progression on 10 October, 31 October and 1 January 2027.
+
+### 3. Connect Squarespace installation to planning and launch guides
+
+- Target intent: install Multilingualizer on Squarespace. Existing installation page has 22 impressions, zero clicks, position 20.41.
+- Added one introductory Gutenberg paragraph linking to the approach hub, ecommerce journey guide and launch checklist. These routes were absent from its original content and directly answer choosing, shop coverage and launch-check questions around installation.
+- All original installation text, blocks, screenshot and non-content metadata retained. No current-plan/code-injection promise added. This is an internal-link change, not a new compatibility test.
+- Fit/CTA: existing Multilingualizer installation intent; no added affiliate sales claim. Parent hub and specialised guides retain distinct intent.
+- URL: https://www.multilingualizer.com/support/how-to-install-the-multilingualizer-on-squarespace/.
+- Measure relevant destination progression and landing-page organic clicks on 10 October, 31 October and 1 January 2027.
+
+### Run record
+
+- Original and readback snapshots saved under gitignored `data/seo-backups/2026-10-03/`; concurrent-change guards compared original/live content before each write. Post/metadata readback matched; non-SEO metadata remained unchanged. No prices, theme, customer data, consent configuration or Multilingualizer JavaScript changed.
+- Public canonical pages loaded to trigger GridPane's stale-cache refresh before verification.
+- Google Analytics Admin API enablement remains waiting on Dave. Affiliate click recording already works; clicks aren't sales.
+- Final canonical-page verification passed for three pages and 16 internal links, including exact titles/descriptions, single H1s, rendered AJAX-price markup and tracked product links. Browser screenshots saved for both refreshed guides. Weebly's table needed page-local cell padding because the site's single-post table rule doesn't apply to this WordPress page; corrected without a theme or global CSS edit.
+- `npm run check` passed all 16 tests; `git diff --check` passed. Task changes committed and pushed to `main` in `dhilditch/Multilingualizer` with message `Refresh Webflow and Weebly guides and strengthen setup links`. Private reports, backups and screenshots remain uncommitted. No background jobs left running.
