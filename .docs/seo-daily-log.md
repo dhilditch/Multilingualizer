@@ -111,6 +111,46 @@ Fresh GSC and GA4 collection completed. The available reporting window remains 2
 - Final verification passed for all three public canonical pages and 13 internal links. Exact title/description readback, rendered tracked CTA and AJAX price, unchanged non-SEO metadata and metadata-only page bodies checked. Browser review and screenshot confirm the beginner guide's published layout. `npm run check` passed all 16 tests; `git diff --check` passed.
 - Task changes committed and pushed to `main` in `dhilditch/Multilingualizer` with message `Correct beginner guide and targeted search snippets`. Private analytics and snapshots remain uncommitted. No background jobs left running.
 
+## 4 October 2026, 10:00 Europe/Athens: scheduled review
+
+Fresh reporting collected. Date-dimension GSC totals for 4 September–1 October: 23 clicks and 2,307 impressions versus 16 clicks and 1,681 impressions in the preceding 28 days. GA4 reports 225 sessions, 21 engaged sessions and zero purchases. The reporting window predates the October edits; these figures are not evidence that the edits increased sales or traffic. The three query-derived opportunities overlap recent interventions. Those experiments remain untouched, except for the separately verified missing-heading defect below.
+
+### 1. Correct the older Squarespace Weglot comparison
+
+- Target intent: Weglot versus Multilingualizer for Squarespace. Page evidence: 128 impressions, two clicks, position 19.51. This is page-level evidence, not an asserted query volume.
+- Publicly reproduced defects on page 28003: obsolete $99/year Weglot pricing, blanket checkout translation and multilingual SEO guarantees, outdated assertions about Squarespace functionality and competitor pricing. Replaced these with a workflow comparison covering editing, payment model, language URLs, maintenance and journey testing. Removed unverified customer satisfaction/count claims.
+- Published copy follows Dave's article voice. Positive owned-product callout uses `[ssp_price product="4462"]`, links Multilingualizer and states pay once/use forever. Named product and sponsored affiliate-click attributes retained in the new copy; no price configuration changed.
+- Sources checked immediately before publication: Squarespace's Weglot guide (editing, subdomains and excluded surfaces), Google's multilingual URL guidance and the live on-page translation instructions. No competitor price restated. No blanket checkout or ranking guarantee added.
+- CTA/product fit: manually maintained editor-native translations lead to product 4462; managed-service consideration leads to the calculator and disclosed Weglot affiliate link. Subdomain, SEO, checkout and launch guides answer narrower decisions.
+- Internal competing URL `/multilingualizer-vs-weglot/` remains unchanged pending consolidation decisions. Existing URL preserved: https://www.multilingualizer.com/weglot-vs-the-multilingualizer-for-squarespace/.
+- Measure organic clicks/CTR and named product/affiliate progression on 11 October, 1 November and 2 January 2027. Clicks aren't affiliate sales.
+
+### 2. Clarify the CSS label-translation guide and connect its next steps
+
+- Target intent: translate hard-coded labels using CSS. Page evidence: 39 impressions, one click, position 12.54.
+- Reproduced public claim that the approach would work across the board. The article also incorrectly described `content` as only working on before/after pseudo-elements. Scoped the examples to the illustrated template and pseudo-element label replacements rather than a general translation system.
+- Added a short introductory section explaining that generated labels don't change original HTML, email or protected-screen access; linked checkout/forms guidance, the Squarespace hub and launch checklist. MDN's current `content` documentation supports the generated-content accessibility warning. Added explicit testing steps for accessible names, keyboard use and narrow screens.
+- Original two CSS examples and three screenshots retained. No script, CSS implementation or theme changed; this is a documentation correction, not a claim that a particular customer's template was tested.
+- Product fit: helps existing/manual-translation users complete a launch and introduces the wider workflow guides. No new sales promise or duplicate URL.
+- URL: https://www.multilingualizer.com/support/how-to-translate-hard-coded-texts-using-css/.
+- Measure page clicks/CTR and progression to the linked guides at 7/28/90 days: 11 October, 1 November and 2 January 2027.
+
+### 3. Restore Zoho's missing primary heading
+
+- Target intent: make Zoho Sites multilingual. Page evidence: 13 impressions, zero clicks, position 10.69.
+- Public HTML had zero H1 elements, independently confirming the baseline audit. Changed the hero text into one descriptive H1 in both the Themify text module and its static fallback.
+- This is the technical-defect exception to the 28-day rule: the 2 October title/description experiment is unchanged. Themify rows, columns, settings, images and all other module text preserved. No new compatibility assertion introduced; inherited claims about every template remain unvalidated and require a separate compatibility review.
+- Product route remains the existing purchase button. No new competing URL or redirect. URL: https://www.multilingualizer.com/make-zoho-sites-multilingual/.
+- Measure clicks/CTR and observe the heading at 7/28/90 days: 11 October, 1 November and 2 January 2027. Do not attribute a result solely to this heading independently of the recent snippet change.
+
+### Run record
+
+- Private original/readback snapshots, public before/after HTML, link-verification results and browser screenshots saved under gitignored `data/seo-backups/2026-10-04/`. Concurrent-content guards checked before each write; non-target metadata retained. Themify structure compared after excluding edited text and matched exactly.
+- Verification passed: three public canonical URLs return 200 with one H1 each; ten internal destinations return 200. Comparison title/description, dynamic AJAX-price markup, named product links and sponsored affiliate link verified. Browser inspected all three pages and confirmed the preserved Zoho layout. The on-page translation link was corrected during verification before final acceptance.
+- `npm run check` passed all 16 tests and configuration validation; `git diff --check` passed. No redirects, deletions, outreach, prices, credentials, customer data, consent or Multilingualizer JavaScript changes.
+- Google Analytics Admin API enablement still awaits Dave. Reporting remains usable; no new permissions requested or configured in this run.
+- Repository record: commit message `Correct Squarespace comparison and focused SEO defects`, targeting `main` in `dhilditch/Multilingualizer`. Private evidence excluded. All collection, publishing and verification commands completed; no background jobs left running.
+
 ## 3 October 2026, 10:00 Europe/Athens: scheduled review
 
 Collected fresh GSC/GA4. Date-dimension GSC totals for 3–30 September: 26 clicks and 2,478 impressions, compared with 13 clicks and 1,510 impressions in the preceding 28 days. GA4: 225 sessions, 21 engaged sessions and zero purchases. These windows predate the October interventions, so no gain is attributed to them. Yesterday's experiments remain untouched until their 28-day review on 30 October.
