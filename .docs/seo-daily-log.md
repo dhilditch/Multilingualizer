@@ -1,5 +1,46 @@
 # Multilingualizer SEO implementation log
 
+## 5 October 2026, 10:00 Europe/Athens: scheduled review
+
+Collected fresh GSC and GA4 with the existing scripts. Date-dimension GSC totals for 5 September–2 October: 24 clicks and 2,457 impressions, versus 17 clicks and 1,779 impressions in the preceding 28 days. GA4: 226 sessions, 22 engaged sessions, zero key events and zero recorded purchases. The window includes only the first day of October interventions; it is too early to evaluate them. The three query-derived opportunities overlap recent work and remain unchanged under the 28-day rule.
+
+### 1. Refresh the Swiss business website guide
+
+- Target intent: choose languages and a multilingual website workflow for a Swiss business. Existing post 44682 has 46 impressions, zero clicks and position 6.37. Page-level evidence, not an assertion of observed query volume.
+- Reproduced publicly: $3.99/month and free-trial offer, invented ordinary-text language wrappers, automatic-selector and universal-platform claims, dated Webflow pricing, unsourced population shares and blanket language/compliance recommendations.
+- Replaced with a practical sequence: choose audience languages, translate the commercial journey, choose a maintenance workflow, plan language URLs and test. National versus federal official-language terminology uses the current Swiss FDFA source. Removed unsourced demographic figures and legal conclusions rather than inventing replacements. The guide explicitly isn't a legal determination or compatibility test.
+- Verified primary sources immediately before publication: https://www.aboutswitzerland.eda.admin.ch/en/multilingualism and https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites. Live Multilingualizer on-page translation and selector instructions checked separately.
+- Product fit/CTA: editor-native manually maintained Squarespace translations, positive pay-once callout using `[ssp_price product="4462"]` and `multilingualizer_product_click`; managed-service consideration routes to the calculator. No price configuration changed.
+- Title, description and content refreshed. Relevant links point to builder comparison, Squarespace hub, marker/selector instructions, language subdomains, launch checklist and research. Competing `/switzerland-multilingual-website/` remains untouched pending consolidation authority. No new URL or redirect.
+- URL: https://www.multilingualizer.com/switzerland-four-languages-business-website-guide/.
+- Success measures: organic clicks/CTR and progression to product/calculator. Check 12 October, 2 November and 3 January 2027 (7/28/90 days).
+
+### 2. Correct the unfinished jQuery conflict article
+
+- Target intent: investigate jQuery conflicts affecting an image popup or site behaviour. Post 11226 has 15 impressions, zero clicks and position 8.20.
+- Reproduced public defect: `[help me here dave]` placeholder. Existing copy also prescribed script deletion and promised general success from a recorded example. Replaced the placeholder with an explanation of global references and scoped the deletion/result passages to the recorded site.
+- Added console/dependency checks, a saved-code and test-site precaution, and links to troubleshooting, selector configuration and launch checks. Current official jQuery documentation cautions against two versions and explains global-variable/plugin constraints: https://api.jquery.com/jquery.noConflict/. The web reader failed to retrieve its body, so it was fetched directly with HTTP 200 and inspected before publication.
+- Added a missing meta description. Original video URL, six screenshots, title and non-SEO metadata retained. No Multilingualizer JavaScript or installation code changed. This is an editorial correction, not a new reproduction or diagnosis of the historic customer's JavaScript failure.
+- Product fit: existing/manual-translation users reach relevant support and complete their launch tests. Intent remains distinct from the installation and general troubleshooting pages. No competing new URL.
+- URL: https://www.multilingualizer.com/how-to-fix-javascript-errors-caused-by-jquery-conflicts/.
+- Success measures: organic clicks/CTR and progression to the linked support/checklist pages. Check 12 October, 2 November and 3 January 2027.
+
+### 3. Add the customer research search description
+
+- Target intent: who uses multilingual features on Squarespace. Post 45693 has 18 impressions, zero clicks and position 5.22. Verified the public page had no meta description.
+- Added: `Who uses multilingual Squarespace sites? Explore language combinations, sectors and visible tools in a historical customer study, with methods and limits.` The description reflects the article's actual contents without adding a new statistic or claiming current outcomes.
+- Title, article, tables, denominators, method note, customer data and existing product/guide links remain unchanged. No database enrichment or new customer claims. Existing research links provide the route to the owned product and relevant guides; this change tests the snippet, not the commercial offer.
+- Internal intent: aggregate historical research, distinct from sector examples and widget tutorials. No new URL. URL: https://www.multilingualizer.com/who-uses-multilingual-squarespace/.
+- Success measures: organic clicks/CTR; observe progression through existing links without attributing clicks to sales. Check 12 October, 2 November and 3 January 2027.
+
+### Verification and repository record
+
+- Original/readback snapshots, public before/after HTML, link results and screenshots saved under gitignored `data/seo-backups/2026-10-05/`. Concurrent-change guards checked before every write. All non-target metadata preserved; research title/content matched byte-for-byte; jQuery media URLs matched the original.
+- Normal canonical URLs warmed for stale-cache refresh, then verified: three pages return HTTP 200 with one H1 each, exact descriptions and unchanged canonicals; twelve internal destinations return HTTP 200. Swiss title, AJAX-price markup and tracked product CTA verified. Browser inspected all three pages and the research description.
+- `npm run check`: all 16 tests and configuration validation passed. `git diff --check` passed. No theme, price, consent, credentials, customer data, JavaScript, redirects, deletion or outreach changes.
+- Commit message: `Refresh Swiss guide and correct legacy support SEO`, targeting `main` in `dhilditch/Multilingualizer`. Private evidence excluded. All collection/publishing/verification commands completed; no background jobs left running. The previous run is confirmed pushed as `dfb71b5`.
+- Still waiting on Dave: enable Google Analytics Admin API in project `555360471471`. Reporting works; no credential or permission change attempted.
+
 ## Authority and schedule
 
 Dave authorised the five initial improvements and daily implementation of the top three SEO recommendations on 2 October 2026. The active app heartbeat `multilingualizer-daily-seo-improvements` returns to this chat daily at 10:00 Europe/Athens. The local computer must be on and the app running for local work.
