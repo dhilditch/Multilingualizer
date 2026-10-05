@@ -1,5 +1,11 @@
 # Multilingualizer SEO implementation log
 
+## 5 October 2026: Analytics Admin API access confirmed
+
+After Dave enabled the API, read-only calls to `properties.get` and `properties.keyEvents.list` succeeded for `properties/399612927`, displayed as `Multilingualizer - GA4`. The API-enable blocker is resolved. The existing key-event list contains only `purchase`; neither `affiliate_click_weglot` nor `multilingualizer_product_click` is marked as a key event.
+
+These read-only calls do not establish Editor/write access. Confirm the service account's existing GA4 property role before proceeding with key-event configuration. No roles, credentials, scopes or Analytics configuration changed in this check. Reporting and the previously verified named click events remain distinct from key-event designation.
+
 ## 5 October 2026, 10:00 Europe/Athens: scheduled review
 
 Collected fresh GSC and GA4 with the existing scripts. Date-dimension GSC totals for 5 September–2 October: 24 clicks and 2,457 impressions, versus 17 clicks and 1,779 impressions in the preceding 28 days. GA4: 226 sessions, 22 engaged sessions, zero key events and zero recorded purchases. The window includes only the first day of October interventions; it is too early to evaluate them. The three query-derived opportunities overlap recent work and remain unchanged under the 28-day rule.
