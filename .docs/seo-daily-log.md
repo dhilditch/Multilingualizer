@@ -1,5 +1,43 @@
 # Multilingualizer SEO implementation log
 
+## 6 October 2026, 10:00 Europe/Athens: scheduled review
+
+Fresh GSC/GA4 collection completed. Date-dimension GSC totals for 6 September–3 October: 24 clicks and 2,449 impressions, versus 17 clicks and 1,844 impressions in the preceding 28 days. GA4: 229 sessions, 23 engaged sessions and zero recorded purchases/key events. The window contains only two days of the October work; no improvement is attributed to those edits. Query-derived opportunities overlap recent experiments and remain unchanged. Today's three interventions are on untouched pages with page-level search signals.
+
+### 1. Describe the widget guide in search
+
+- Intent: choose useful widgets for a multilingual Squarespace site. Post 45694: 34 impressions, zero clicks, position 8.88. No claim of observed query-level volume.
+- Reproduced missing public meta description. Added `Compare reviews, chat, Instagram feeds and counters for multilingual Squarespace sites. Includes captured examples and checks for language, layout and consent.` It describes the existing article without introducing new vendor capabilities, pricing, statistics or compliance claims.
+- Source: live first-party article, which contains those widget sections, captured examples and language/layout/consent checks. The web reader returned 403; direct public fetch and WordPress snapshot were readable. Title, body, images, historical study and existing links remain unchanged.
+- Product fit/CTA: existing owned-product and widget-vendor routes retained. Research is the aggregate study, while this article remains the widget chooser; no new competing URL or intent.
+- URL: https://www.multilingualizer.com/best-squarespace-widgets-multilingual-sites/. Measure page CTR/clicks and existing product/vendor progression on 13 October, 3 November and 4 January 2027 (7/28/90 days).
+
+### 2. Connect Anna's customer example to planning guides
+
+- Intent: read the existing international-consultant multilingual example and plan a similar project. Page 10645: 11 impressions, zero clicks, position 5.64. These are page-level signals, not evidence that all name searches have buying intent.
+- Before: case-study content linked only to Anna's external site, with no contextual setup-guide route. Added one separate paragraph after the bio linking to the beginner planning guide and builder comparison, framed around an international audience.
+- Source: the original published interview explains the international client network and need for multiple languages. No new assertion about Anna's current platform, business, satisfaction or results. Customer text and images retained verbatim; no new customer data or testimonial written.
+- Product fit/CTA: readers who choose to plan their own project can follow the guides to the owned-product/Squarespace route or managed-service calculator as appropriate. This is an internal-link improvement, not a claim that branded traffic is qualified or has converted.
+- Internal intent: historical example remains distinct from the beginner and platform-choice pages. URL retained: https://www.multilingualizer.com/case-studies/anna-steinkamp/.
+- Measure organic landing clicks and onward visits/session paths where available, not affiliate sales. Check 13 October, 3 November and 4 January 2027.
+
+### 3. Connect Karol's customer example to workflow choices
+
+- Intent: read the existing example of retaining a language while adding others. Page 10211: ten impressions, zero clicks, position 10.40.
+- Before: content linked only to Karol's external site. Added one paragraph after the bio with the bilingual planning guide and builder comparison, framed around keeping the existing language. These destinations supply current planning guidance without implying the historical Pagevamp setup is currently tested.
+- Source: the original interview's Slovak/Czech language requirement. No quote, biography, language count, image, historical implementation or title changed. No current compatibility or performance claim added.
+- Product fit/CTA and internal competition: the example supplies evidence/context; the linked guides supply planning and commercial choices. No new case-study URL or competitor page. URL retained: https://www.multilingualizer.com/case-studies/karol-suchanek/.
+- Measure organic landing clicks and onward visits/session paths where available. Check 13 October, 3 November and 4 January 2027. Small volumes limit attribution; guide visits aren't sales.
+
+### Verification and repository record
+
+- Backups, exact readbacks, public before/after HTML, verification results and browser screenshots saved under gitignored `data/seo-backups/2026-10-06/`. Concurrent-change guards checked before writes. Widget body/title unchanged. Both case-study originals match after removing the new paragraphs; full expected Themify JSON matches readback, including unchanged rows, columns, styles, media and all other text.
+- Normal canonical URLs warmed before final verification. Three pages returned HTTP 200 with retained canonicals; exact widget description rendered. Four added contextual links point to two HTTP-200 destinations. Direct retrieval confirmed their planning and workflow content after the web reader could not access them. Browser confirmed both case-study links/layouts and the widget description; Anna's new paragraph inspected at the user's current mobile viewport.
+- No recent experiment revised, no theme, script, price, customer record, credential or consent change, no redirect, deletion or outreach. No new click event or conversion designation configured.
+- GA Admin API enablement is resolved. Still waiting on Dave to confirm the existing service account's GA4 property role before key-event configuration; read-only API access doesn't establish write access.
+- Repository commit message: `Add widget search description and customer guide routes`, targeting `main` in `dhilditch/Multilingualizer`. Private evidence excluded. Collection, publishing and verification commands completed with no background jobs remaining.
+- Final repository checks: all 16 tests and configuration validation passed; `git diff --check` passed.
+
 ## 5 October 2026: Analytics Admin API access confirmed
 
 After Dave enabled the API, read-only calls to `properties.get` and `properties.keyEvents.list` succeeded for `properties/399612927`, displayed as `Multilingualizer - GA4`. The API-enable blocker is resolved. The existing key-event list contains only `purchase`; neither `affiliate_click_weglot` nor `multilingualizer_product_click` is marked as a key event.
